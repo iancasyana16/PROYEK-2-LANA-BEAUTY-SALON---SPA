@@ -1,0 +1,10 @@
+--------------------------------------------- TUGAS SETELAH UTS ---------------------------------------------
+buat jobdesk disini saya bagi 3 dulu
+
+- casyana : ngoding navbar sm main sm cek2 desain di figma
+- ramadhani : download/kumpulkan asset2 foto yang akan digunakan sama font juga klo nemu referensi
+- rinda : ngoding footer/cari referensi dulu buat ngoding
+
+*note
+- silakan buat yang mau nambahin jobdesknya misal ada free atau bisa cari2 lagi
+- tandai jobdesk yang udah selesai pake #. contoh : ngoding#
