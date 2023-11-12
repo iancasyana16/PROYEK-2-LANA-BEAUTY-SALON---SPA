@@ -1,5 +1,5 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-        <div class="container">
+        <div class="container sticky-top">
             <a class="navbar-brand d-flex fs-5" href="#">Lana Beauty</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
