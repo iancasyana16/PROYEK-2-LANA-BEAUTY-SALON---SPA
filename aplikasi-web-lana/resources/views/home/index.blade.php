@@ -6,7 +6,7 @@
         {{-- booking --}}
         <div class="card mb-5">
             <div class="card-body d-flex justify-content-end bg-transparent p-0" style="max-height: 500px">
-                <img src="/asset/iklan1.jpg" alt="ppp" srcset="" class="img-fluid">
+                <img src="/asset/img/iklan1.jpg" alt="ppp" srcset="" class="img-fluid">
             </div>
         </div>
 
@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-body d-flex justify-content-end p-1" style="max-height: 300px">
-                            <img src="/asset/iklan3.jpg" alt="ppp" srcset="" class="img-fluid">
+                            <img src="/asset/img/iklan3.jpg" alt="ppp" srcset="" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-md-6">

@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('/home.index');
 });
+Route::get('/admin', function () {
+    return view('/admin.index');
+});
+Route::get('/galeri', function () {
+    return view('/galeri.home');
+});
