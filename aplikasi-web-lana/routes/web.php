@@ -24,5 +24,8 @@ Route::get('/admin', function () {
     return view('/admin.index');
 });
 Route::get('/galeri', function () {
-    return view('/galeri.home');
+    return view('/galeri.index');
+});
+Route::get('/galeri/sertif', function () {
+    return view('/galeri.sertif');
 });
