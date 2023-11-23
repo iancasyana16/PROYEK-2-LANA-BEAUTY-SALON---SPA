@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/asset/css/style.css">
+    <link rel="stylesheet" href="/asset/css/carousel.css">
+    <link rel="stylesheet" href="/asset/css/dashboard.css">
     <title>@yield('title')</title>
 
 </head>
@@ -18,9 +20,9 @@
         @include('layout.header');
     </header> --}}
 
-    <nav>
+    {{-- <nav>
         @include('layout.navbar')
-    </nav>
+    </nav> --}}
 
     <main>
         <div class="container">
