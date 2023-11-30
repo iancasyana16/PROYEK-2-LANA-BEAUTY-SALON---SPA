@@ -9,9 +9,9 @@
 </section>
 
 <div class="maingaleri">
-    <div class="card mb-3" style="max-width: 1000px; float:left;">
+    <div class="card mb-3 shadow-sm p-3 mb-5 bg-body-tertiary" style="max-width: 1000px; float:left; border-radius: 15px;">
         <div class="row g-0">
-            <div class="col-md-4">
+            <div class="col-md-4" >
                 <img src="/asset/img/iklan1.jpg" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
@@ -21,13 +21,13 @@
                         lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
                     </p>
-                    <a href="#" class="btn btn-primary" style="float: right; margin-bottom:20px;">Go somewhere</a>
+                    <a href="#" class="btn btn-primary" style="float: right; margin-bottom:20px;">Selengkapnya</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card mb-3" style="max-width: 1000px; float:right; margin-top:20px">
+    <div class="card mb-3 shadow-sm p-3 mb-5 bg-body-tertiary " style="max-width: 1000px; float:right; margin-top:20px; border-radius: 15px;">
         <div class="row g-0">
             <div class="col-md-8">
                 <div class="card-body" style="text-align: right; " >
@@ -36,7 +36,7 @@
                         lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
                     </p>
-                    <a href="#" class="btn btn-primary" style="float:left;">Go somewhere</a>
+                    <a href="{{ url('/galeri/sertif') }}" class="btn btn-primary" style="float:left;">Selengkapnya</a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="card mb-3" style="max-width: 1000px; float:left; margin-top:20px">
+    <div class="card mb-3 shadow-sm p-3 mb-5 bg-body-tertiary " style="max-width: 1000px; float:left; margin-top:20px; border-radius: 15px;">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="/asset/img/iklan3.jpg" class="img-fluid rounded-start" alt="...">
@@ -57,7 +57,7 @@
                         lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
                     <p>
-                        <a href="#" class="btn btn-primary" style="float: right; margin-bottom:20px;">Go somewhere</a>
+                        <a href="{{ url('/galeri/kegiatan') }}" class="btn btn-primary" style="float: right; margin-bottom:20px;">Selengkapnya</a>
                 </div>
             </div>
         </div>

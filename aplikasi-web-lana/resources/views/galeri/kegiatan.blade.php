@@ -29,7 +29,7 @@
             <div class="col-md-6 offset-md-3 rounded-3" style="background-color: #EFD3D7; font-weight: bold; height: 35px; margin-top:20px;">Sertifikat Lainnya</div>
         </div>
         <div class="foto" style="padding: 20px;">
-            <img src="..." class="img-thumbnail" alt="..." style="min-width: 25 0px; min-height: 175px; margin-right: 10px; background-color: #ccc;">
+            <img src="..." class="img-thumbnail" alt="..." style="min-width: 250px; min-height: 175px; margin-right: 10px; background-color: #ccc;">
             <img src="..." class="img-thumbnail" alt="..." style="min-width: 250px; min-height: 175px; margin: 0 10px; background-color: #ccc;">
             <img src="..." class="img-thumbnail" alt="..." style="min-width: 250px; min-height: 175px; margin-left: 10px; background-color: #ccc;">
             <img src="..." class="img-thumbnail" alt="..." style="min-width: 250px; min-height: 175px; margin-left: 10px; background-color: #ccc;">

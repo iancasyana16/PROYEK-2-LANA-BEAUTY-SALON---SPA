@@ -20,9 +20,9 @@
         @include('layout.header');
     </header> --}}
 
-    {{-- <nav>
+    <nav>
         @include('layout.navbar')
-    </nav> --}}
+    </nav>
 
     <main>
         <div class="container">
