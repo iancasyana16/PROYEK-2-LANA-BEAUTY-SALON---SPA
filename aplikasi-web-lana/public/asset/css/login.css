@@ -1,0 +1,51 @@
+/* Custom styles for the login page */
+
+body {
+    background-color: #EFD3D7; /* Bootstrap default background color */
+  }
+
+  .bungkus{
+    background-image: url(/asset/img/bungkus.png);
+  }
+
+
+  .card {
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+
+  .card-header {
+    background-color: #FBF0F0; /* Bootstrap primary color */
+    color: #915353; /* White text on a primary background */
+  }
+
+  .card-body {
+    padding: 15px;
+    background-color: #FBF0F0;
+  }
+
+  .form-label {
+    font-weight: bold;
+  }
+
+  .alert {
+    margin-bottom: 15px;
+  }
+
+  /* Center the login form */
+  .row.justify-content-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  form a{
+    color: blue;
+  }
+
+  /* Responsive styling for small screens */
+  @media (max-width: 500px) {
+    .col-lg-4 {
+      width: 100%;
+    }
+  }

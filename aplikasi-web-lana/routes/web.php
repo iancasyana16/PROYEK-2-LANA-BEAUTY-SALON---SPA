@@ -32,7 +32,3 @@ Route::get('/galeri/sertif', function () {
 Route::get('/galeri/kegiatan', function () {
     return view('/galeri.kegiatan');
 });
-
-Route::get('/galeri/sertif2', function (){
-    return view('/galeri/sertif2');
-});
