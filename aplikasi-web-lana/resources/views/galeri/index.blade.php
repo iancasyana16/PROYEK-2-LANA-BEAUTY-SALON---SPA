@@ -1,4 +1,5 @@
-@extends('layoutadmin.galeri.main')
+{{-- @extends('layoutadmin.galeri.main') --}}
+@extends('layoutadmin.main')
 @section('content')
 <section class="position-relative">
     <img src="/asset/img/bcgaleri.png" alt="nn" class="img-fluid w-100" style="margin-top: -2px">

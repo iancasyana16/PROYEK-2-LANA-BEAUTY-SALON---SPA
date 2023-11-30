@@ -35,3 +35,9 @@ Route::get('/galeri/kegiatan', function () {
 route::get('/dashboard', function () {
     return view('/dashboard.index');
 });
+Route::get('/log', function (){
+    return view('/user.login');
+});
+Route::get('/register', function(){
+    return view('/user.register');
+});
