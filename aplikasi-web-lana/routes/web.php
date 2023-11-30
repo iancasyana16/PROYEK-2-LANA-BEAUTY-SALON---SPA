@@ -32,3 +32,9 @@ Route::get('/galeri/sertif', function () {
 Route::get('/galeri/kegiatan', function () {
     return view('/galeri.kegiatan');
 });
+Route::get('/log', function () {
+    return view('/user.login');
+});
+Route::get('/register', function () {
+    return view('/user.register');
+});
