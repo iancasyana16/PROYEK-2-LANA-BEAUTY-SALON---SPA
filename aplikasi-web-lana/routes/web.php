@@ -38,3 +38,6 @@ Route::get('/log', function () {
 Route::get('/register', function () {
     return view('/user.register');
 });
+Route::get('/booking', function () {
+    return view('/booking.index');
+});

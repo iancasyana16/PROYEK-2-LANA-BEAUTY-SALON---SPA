@@ -4,7 +4,7 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-transparent m-0">
+<nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-transparent m-0">
     <div class="container sticky-top">
         <a class="navbar-brand d-flex fs-5" href="#"><img src="{{ asset('asset/img/logo nobg.png') }}" alt=""
                 height="75" width="120"></a>

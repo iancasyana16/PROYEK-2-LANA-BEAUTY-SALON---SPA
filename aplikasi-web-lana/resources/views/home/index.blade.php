@@ -1,10 +1,8 @@
 @extends('layout.main')
 @section('content')
     <div class="container-fluid">
-
         <main>
-
-            <div class="container">
+            <div class="container mt-1">
                 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
@@ -76,7 +74,7 @@
 
                 <hr class="featurette-divider">
 
-                <div class="row featurette">
+                <div class="row featurette mb-5">
                     <div class="col-md-7 order-md-2">
                         <h2 class="featurette-heading">About Us</h2>
                         <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia voluptatum tenetur
@@ -97,8 +95,6 @@
                         </svg>
                     </div>
                 </div>
-
         </main>
-
     </div>
 @endsection
