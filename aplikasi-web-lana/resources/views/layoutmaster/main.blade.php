@@ -16,6 +16,22 @@
         body {
             margin: 0;
             padding: 0;
+            background: rgb(254, 173, 137);
+            background: linear-gradient(160deg, rgba(254, 173, 137, 1) 0%, rgba(185, 160, 170, 1) 31%, rgba(151, 153, 186, 1) 46%, rgba(158, 154, 183, 1) 57%, rgba(254, 173, 137, 1) 76%, rgba(0, 212, 255, 1) 100%);
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
         }
     </style>
     <title>@yield('title')</title>
@@ -24,17 +40,15 @@
 
 <body>
     <nav>
-        @include('layoutadmin.navbar')
+        @include('layoutmaster.navbar')
     </nav>
 
     <main>
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content')
     </main>
 
     <footer>
-        @include('layout.footer')
+        @include('layoutmaster.footer')
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

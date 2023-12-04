@@ -11,7 +11,7 @@
                 </p>
             </div>
             <div class="row text-start">
-                <h3>OPening Hours</h3>
+                <h3>Opening Hours</h3>
                 <p>Senin - Minggu</p>
                 <p>09.00 - 20.00 WIB</p>
             </div>
