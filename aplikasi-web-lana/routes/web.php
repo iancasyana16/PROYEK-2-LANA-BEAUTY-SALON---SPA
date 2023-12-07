@@ -29,6 +29,9 @@ Route::get('/galeri', function () {
 Route::get('/galeri/sertif', function () {
     return view('/galeri.sertif');
 });
+Route::get('/galeri/sertif2', function () {
+    return view('/galeri.sertif2');
+});
 Route::get('/galeri/kegiatan', function () {
     return view('/galeri.kegiatan');
 });
@@ -43,4 +46,7 @@ Route::get('/booking', function () {
 });
 Route::get('/layanan', function () {
     return view('/layanan.index');
+});
+Route::get('/galeri/coba', function(){
+    return view('/galeri.coba');
 });
