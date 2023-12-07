@@ -22,13 +22,13 @@
                     <img src="/asset/img/logo lana.png" alt="..." style="width: 150px;">
                 </div>
                 <div class="card-body">
-                    {{-- @if(Session::has('error'))
+                    @if(Session::has('error'))
                         <div class="alert alert-danger" role="alert">
                             {{ Session::get('error') }}
                         </div>
                     @endif
                     <form action="{{ route('login') }}" method="POST">
-                        @csrf --}}
+                        @csrf
 
                         <div class="mb-2">
                             <label for="email" class="form-label">Email address</label>

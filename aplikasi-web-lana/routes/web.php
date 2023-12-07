@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,9 @@ Route::get('/log', function () {
 });
 Route::get('/register', function () {
     return view('/user.register');
+});
+Route::view('/dashboard', 'dashboard.index');
+
+Route::controller(AuthController::class)->group(function(){
+    Route::get('login', 'login')->name('login');
 });

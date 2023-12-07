@@ -40,7 +40,7 @@
         <div class="member-info">
             <p>Berlangganan DISKON 20% untuk pesanan online Anda berikutnya,</p>
             <p>bersama dengan pembaruan email dan berita rutin</p>
-            <p><img src="/asset/img/google maps.png"  alt="Google Maps"></p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.485387588195!2d108.32681387366084!3d-6.331101361944962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6eb9cfbbd844a7%3A0x1dbbcff4d4fc0d5a!2sLana%20beauty%20salon%20and%20spa!5e0!3m2!1sid!2sid!4v1701664808391!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </footer>
