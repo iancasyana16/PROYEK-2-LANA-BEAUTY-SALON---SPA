@@ -21,7 +21,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni esse, aperiam minus
                                 natus non
                                 provident.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Booking Sekarang</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="/booking">Booking Sekarang</a></p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni esse, aperiam minus
                                 natus non
                                 provident.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">LIhat Gallery</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="/galeri">LIhat Gallery</a></p>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni esse, aperiam minus
                                 natus non
                                 provident.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Cek Services</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="/layanan">Cek Services</a></p>
                         </div>
                     </div>
                 </div>

@@ -33,6 +33,10 @@
                 font-size: 3.5rem;
             }
         }
+
+        .navbar {
+            background: url('{{ asset('asset/img/bcnavbar.png') }}') center/cover no-repeat;
+        }
     </style>
     <title>@yield('title')</title>
 
