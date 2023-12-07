@@ -1,9 +1,3 @@
-<style>
-    .navbar {
-        background: url('{{ asset('asset/img/bcnavbar.png') }}') center/cover no-repeat;
-    }
-</style>
-
 <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-transparent m-0">
     <div class="container">
         <a class="navbar-brand d-flex fs-5" href="/"><img src="{{ asset('asset/img/logo nobg.png') }}" alt=""
