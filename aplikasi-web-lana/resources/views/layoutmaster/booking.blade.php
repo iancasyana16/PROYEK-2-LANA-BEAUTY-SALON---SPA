@@ -10,30 +10,24 @@
     <link rel="stylesheet" href="/asset/css/style.css">
     <link rel="stylesheet" href="/asset/css/carousel.css">
     <link rel="stylesheet" href="/asset/css/dashboard.css">
+    <link rel="stylesheet" href="/asset/css/footer.css">
+    <link rel="stylesheet" href="/asset/css/form-validation.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
     <title>@yield('title')</title>
 
 </head>
 
 <body>
-
-    {{-- <header>
-        @include('layout.header');
-    </header> --}}
-
-    <nav>
-        @include('layout.navbar')
-    </nav>
-
     <main>
         <div class="container">
             @yield('content')
         </div>
     </main>
-
-    <footer>
-        @include('layout.footer')
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
