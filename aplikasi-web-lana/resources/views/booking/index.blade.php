@@ -4,54 +4,6 @@
     <body class="bg-light">
         <div class="container p-3 my-3 text-white">
             <div class="row g-5">
-                <div class="col-md-5 col-lg-4 order-md-last">
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">Your cart</span>
-                        <span class="badge bg-primary rounded-pill">3</span>
-                    </h4>
-                    <ul class="list-group mb-3">
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Product name</h6>
-                                <small class="text-muted">Brief description</small>
-                            </div>
-                            <span class="text-muted">$12</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Second product</h6>
-                                <small class="text-muted">Brief description</small>
-                            </div>
-                            <span class="text-muted">$8</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Third item</h6>
-                                <small class="text-muted">Brief description</small>
-                            </div>
-                            <span class="text-muted">$5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between bg-light">
-                            <div class="text-success">
-                                <h6 class="my-0">Promo code</h6>
-                                <small>EXAMPLECODE</small>
-                            </div>
-                            <span class="text-success">−$5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Total (USD)</span>
-                            <strong>$20</strong>
-                        </li>
-                    </ul>
-
-                    <form class="card p-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                        </div>
-                    </form>
-                </div>
-
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Formulir Booking</h4>
                     <form class="needs-validation" novalidate>
@@ -75,7 +27,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="Hari/Tanggal" class="form-label">Hari/Tanggal</label>
+                                <label for="Hari/Tanggal" class="form-label">Hari/Tanggal/Waktu</label>
                                 <div class="input-group needs-validation">
                                     <input type="date" name="hari" id="" class="form-control">
                                     <div class="invalid-feedback">
@@ -85,18 +37,55 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="layanan" class="form-label">Pilih Layanan</label>
-                                <input type="layanan" class="form-control" id="layanan">
-                                <div class="invalid-feedback">
-                                    Form tidak boleh kosong
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Pilih Waktu</option>
+                                    <option value="1">09.00 WIB</option>
+                                    <option value="2">24.00 WIB</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">
+                                    Pilih layanan
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header text-dark">
+                                                <form class="d-flex" role="search">
+                                                    <input class="form-control me-2 rounded" type="search"
+                                                        placeholder="Search" aria-label="Search">
+                                                    <button class="btn btn-primary" type="submit">Search</button>
+                                                </form>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body text-dark">
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Understood</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                         <hr class="my-4">
                         <button class="w-100 btn btn-primary btn-lg" type="submit">Ajukan Booking</button>
                     </form>
                 </div>
             </div>
         </div>
+
     </body>
 @endsection

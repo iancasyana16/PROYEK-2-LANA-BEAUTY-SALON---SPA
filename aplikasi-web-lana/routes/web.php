@@ -28,19 +28,12 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('/user.register');
 });
-<<<<<<< HEAD
-Route::view('/dashboard', 'dashboard.index');
-
-Route::controller(AuthController::class)->group(function(){
-    Route::get('login', 'login')->name('login');
-=======
 Route::get('/booking', function () {
     return view('/booking.index');
 });
-Route::get('/layanan', function () {
-    return view('/layanan.index');
+Route::get('/order', function () {
+    return view('/admin.order');
 });
-Route::get('/galeri/coba', function(){
-    return view('/galeri.coba');
->>>>>>> df1ed670590e2c534e4217b2c945d72664618bd0
+Route::get('/services', function () {
+    return view('/admin.services');
 });
