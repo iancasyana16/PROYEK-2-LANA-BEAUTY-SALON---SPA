@@ -41,19 +41,27 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('/user.register');
 });
+<<<<<<< HEAD
 Route::view('/dashboard', 'dashboard.index');
 
 // Route::controller(AuthController::class)->group(function(){
 // });
 //     Route::get('login', 'login')->name('login');
+=======
+>>>>>>> 5d9562d74b9a52707d9696d306735f0b43f0f06e
 Route::get('/booking', function () {
     return view('/booking.index');
 });
-Route::get('/layanan', function () {
-    return view('/layanan.index');
+Route::get('/order', function () {
+    return view('/admin.order');
 });
+<<<<<<< HEAD
 Route::get('/galeri/coba', function(){
     return view('/galeri.coba');
+=======
+Route::get('/services', function () {
+    return view('/admin.services');
+>>>>>>> 5d9562d74b9a52707d9696d306735f0b43f0f06e
 });
 
 
