@@ -1,4 +1,4 @@
-@extends('layoutbooking.main')
+@extends('layout.mainbooking')
 @section('content')
 
     <body class="bg-light">

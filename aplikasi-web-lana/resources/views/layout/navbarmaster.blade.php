@@ -1,7 +1,7 @@
 <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-transparent m-0">
     <div class="container">
-        <a class="navbar-brand d-flex fs-5" href="/"><img src="{{ asset('asset/img/logo nobg.png') }}" alt=""
-                height="75" width="120"></a>
+        <a class="d-flex fs-5" href="/"><img src="{{ asset('asset/img/logo lana.png') }}" alt="" height="75"
+                width="120"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

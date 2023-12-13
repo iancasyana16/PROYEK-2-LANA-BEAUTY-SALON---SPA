@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/asset/css/dashboard.css">
     <link rel="stylesheet" href="/asset/css/footer.css">
     <link rel="stylesheet" href="/asset/css/form-validation.css">
+
     <style>
         body {
             margin: 0;
@@ -36,7 +37,15 @@
 
         .navbar {
             background: url('{{ asset('asset/img/bcnavbar.png') }}') center/cover no-repeat;
-            height: 90px;
+        }
+
+        /* navbar Hover */
+        .navbar-nav .nav-item:hover {
+            border-bottom: solid 1px whitesmoke;
+        }
+
+        #log a:hover {
+            color: black;
         }
     </style>
     <title>@yield('title')</title>
@@ -45,7 +54,7 @@
 
 <body>
     <nav>
-        @include('layoutbooking.navbar')
+        @include('layout.navbarmaster')
     </nav>
 
     <main>
@@ -53,7 +62,7 @@
     </main>
 
     <footer>
-        @include('layoutbooking.footer')
+        @include('layout.footermaster')
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

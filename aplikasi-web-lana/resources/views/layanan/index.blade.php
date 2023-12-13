@@ -1,4 +1,4 @@
-@extends('layoutlayanan.main')
+@extends('layout.mainlayanan')
 @section('content')
     <div class="album py-2">
         <div class="container">

@@ -1,4 +1,4 @@
-@extends('layoutmaster.main')
+@extends('layout.mainmaster')
 @section('content')
     <div class="container-fluid">
         <div id="myCarousel" class="carousel slide my-2" data-bs-ride="carousel">
