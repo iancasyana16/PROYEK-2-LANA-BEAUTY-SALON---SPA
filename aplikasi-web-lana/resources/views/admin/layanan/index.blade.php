@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="" class="btn btn-primary">Tambah Layanan Baru</a>
+                    <a href="/admin/layanan/create" class="btn btn-primary">Tambah Layanan Baru</a>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm mt-1" style="width: 150px;">
@@ -34,17 +34,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <a href="" class="btn btn-warning">Edit</a>
-                                    <a href="" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
+                            @foreach ($layanan as $row)
+                                <tr>
+                                    <td>{{ $row['id'] }}</td>
+                                    <td>{{ $row['foto_layanan'] }}</td>
+                                    <td>{{ $row['nama_layanan'] }}</td>
+                                    <td>{{ $row['desk_layanan'] }}</td>
+                                    <td>{{ $row['harga_layanan'] }}</td>
+                                    <td>
+                                        <a href="/admin/layanan/edit" class="btn btn-warning">Edit</a>
+                                        <a href="{{ route('/admin/layanan/delete') }}" class="btn btn-danger"
+                                            onclick="return confirm('yakin?')">Hapus</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -6,12 +6,11 @@
                 <!-- general form elements -->
                 <div class="card card-secondary">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Data Layanan</h3>
+                        <h3 class="card-title">Edit Data Layanan</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ route('/admin/layanan/store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
+                    <form>
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="nama_layanan">Nama Layanan</label>
@@ -27,11 +26,10 @@
                                 <input type="number" class="form-control" id="harga_layanan">
                             </div>
                             <div class="form-group">
-                                <label for="foto_layanan">Foto Layanan</label>
+                                <label for="exampleInputFile">Foto Layanan</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="foto_layanan"
-                                            name="foto_layanan">
+                                        <input type="file" class="custom-file-input" id="foto_layanan">
                                         <label class="custom-file-label" for="foto_layanan">Pilih file</label>
                                     </div>
                                 </div>
@@ -40,7 +38,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Tambahkan</button>
+                            <button type="submit" class="btn btn-primary">Perbarui</button>
                         </div>
                     </form>
                 </div>
