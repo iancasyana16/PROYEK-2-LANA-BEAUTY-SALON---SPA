@@ -9,30 +9,33 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function login()
+    public function showLoginForm()
     {
         return view('user/login');
     }
 
-    public function loginAction(Request $request)
+    public function login(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $credentials = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        try {
-            $validator->validate();
-        } catch (ValidationException $e) {
-            throw new ValidationException($validator, $e->getResponse());
-        }
-
-        if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
-            return redirect()->intended('/');
-        }
-
-        throw ValidationException::withMessages([
-            'email' => [trans('auth.failed')],
-        ]);
+      // Jika validasi gagal, kembalikan dengan error dan input sebelumnya
+    if ($credentials->fails()) {
+        return back()->withErrors($credentials)->withInput();
     }
+
+    // Ambil kredensial dari form login
+    $credentials = $request->only('email', 'password');
+
+    // Coba melakukan otentikasi
+    if (Auth::attempt($credentials)) {
+        // Otentikasi berhasil, redirect ke halaman yang dimaksud
+        return redirect()->intended('/');
+    }
+
+    // Otentikasi gagal, kembalikan dengan error
+    return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+}
 }

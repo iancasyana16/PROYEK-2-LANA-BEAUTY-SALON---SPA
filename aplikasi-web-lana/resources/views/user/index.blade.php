@@ -1,4 +1,4 @@
-@extends('layoutDashboard.main')
+@extends('layout.mainuser')
 @section('content')
 <style>
 /* .my-section-content {
@@ -10,7 +10,7 @@
 } */
 </style>
     <section class="w-full">
-        <div class="contentFormUpdateProfil border border-black w-full p-6 rounded-xl" id="updateProfil">
+        <div class="contentFormUpdateProfil text-white border border-black w-full p-6 rounded-xl bg-slate-600" id="updateProfil">
             <div class="headUpdate text-4xl font-bold text-center">
                 <h2>Update Profil Anda</h2>
             </div>
@@ -86,7 +86,10 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="flex justify-end mt-4">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Simpan</button>
+                        <button type="submit" class="bg-red-700 text-white px-4 py-2 rounded-md">Batal</button>
+                    </div>
                 </form>
             </div>
         </div>
