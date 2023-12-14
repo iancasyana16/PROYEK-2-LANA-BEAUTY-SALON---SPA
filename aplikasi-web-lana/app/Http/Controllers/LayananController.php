@@ -26,18 +26,18 @@ class LayananController extends Controller
 
     public function edit(Layanan $layanan)
     {
-        return view('layanan.edit', compact('layanan'));
+        return view('admin/layanan.edit', compact('layanan'));
     }
 
     public function update(Request $request, Layanan $layanan)
     {
         $layanan->update($request->all());
-        return redirect()->route('layanan.index')->with('success', 'Layanan berhasil diperbarui');
+        return redirect()->route('admin/layanan.index')->with('success', 'Layanan berhasil diperbarui');
     }
 
     public function destroy(Layanan $layanan)
     {
         $layanan->delete();
-        return redirect()->route('layanan.index')->with('success', 'Layanan berhasil dihapus');
+        return redirect()->route('/admin/layanan.index')->with('success', 'Layanan berhasil dihapus');
     }
 }
