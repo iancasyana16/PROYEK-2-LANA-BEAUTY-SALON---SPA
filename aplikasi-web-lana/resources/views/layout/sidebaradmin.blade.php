@@ -37,6 +37,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ url('/galeri') }}" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-cart"></i>
+                        <p>
+                            Galeri
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/setting" class="nav-link">
                         <i class="nav-icon fa-solid fa-gear"></i>
                         <p>

@@ -26,8 +26,8 @@
         </div>
 
         <form class="d-flex gap-1 fs-5">
-            <a href="{{ route('login') }}" class="btn text-decoration-underline text-white">Login</a>
-            <a href="{{ route('register') }}" class="btn btn-light">Sign Up</a>
+            {{-- <a href="{{ route('login') }}" class="btn text-decoration-underline text-white">Login</a>
+            <a href="{{ route('register') }}" class="btn btn-light">Sign Up</a> --}}
         </form>
     </div>
 </nav>

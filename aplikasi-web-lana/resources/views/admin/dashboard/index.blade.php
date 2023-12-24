@@ -80,6 +80,22 @@
                         </a>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <!-- small card -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>150</h3>
+
+                            <p>Galeri</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            Selengkapnya <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
         </section>
