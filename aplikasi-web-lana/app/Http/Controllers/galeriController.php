@@ -75,6 +75,7 @@ class GaleriController extends Controller
             'judul_kegiatan' => 'required',
             'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'caption_kegiatan' => 'required',
+            'kategori' => 'required',
         ]);
 
         $sertifikat = Sertifikat::find($id_sertif);
@@ -90,9 +91,10 @@ class GaleriController extends Controller
             'judul_kegiatan' => $request->judul_kegiatan,
             'foto' => $fileName,
             'caption_kegiatan' => $request->caption_kegiatan,
+            'kategori' => $request->kategori,
         ]);
 
-        return redirect()->route('galeri.index')->with('success', 'Data berhasil diupdate.');
+        return redirect()->route('Galeri.index')->with('success', 'Data berhasil diupdate.');
     }
 
     public function destroy($id_sertif): RedirectResponse
@@ -100,6 +102,6 @@ class GaleriController extends Controller
         $sertifikat = Sertifikat::find($id_sertif);
         $sertifikat->delete();
 
-        return redirect()->route('galeri.index')->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('Galeri.index')->with('success', 'Data berhasil dihapus.');
     }
 }

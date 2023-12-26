@@ -1,5 +1,10 @@
 @extends('layout.mainadmin')
 @section('content')
+
+
+
+
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -46,7 +51,7 @@
                                     data-bs-target="#edit-{{ $row->id_sertif }}">
                                     <i class="fa-regular fa-pen-to-square"></i></a>
                                 <a href="#" type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#hapus"><i class="fa-regular fa-trash-can"></i></a>
+                                    data-bs-target="#hapus-{{ $row->id_sertif}}"><i class="fa-regular fa-trash-can"></i></a>
                             </td>
                         </tr>
 
@@ -55,11 +60,77 @@
                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <!-- Isi modal edit data -->
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Edit Data</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ route('galeri.update', ['id' =>$row->id_sertif]) }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="judul_kegiatan" class="form-label">Judul Kegiatan</label>
+                                                <input type="text" class="form-control" id="judul_kegiatan" name="judul_kegiatan"
+                                                    placeholder="contoh: Bakti Sosial" value="{{ $row->judul_kegiatan }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="foto" class="form-label">Foto 1</label>
+                                                <input type="file" class="form-control" id="foto" name="foto"
+                                                    accept="image/*" value="{{ $row->foto }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="caption_kegiatan" class="form-label">Caption Kegiatan</label>
+                                                <input type="text" class="form-control" id="caption_kegiatan" name="caption_kegiatan"
+                                                    placeholder="contoh: isi kegiatan" value="{{ $row->caption_kegiatan }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="kategori" class="form-label">Kategori</label>
+                                                <select name="kategori" id="kategori" required>
+                                                    <option value="sertifikat">Sertifikat</option>
+                                                    <option value="kegiatan">Kegiatan</option>
+                                                </select>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success">Simpan</button>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Batal</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                                {{-- Modal Hapus --}}
+                        <div class="modal fade" id="hapus-{{ $row->id_sertif }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Apakah Anda yakin ingin menghapus data ini?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <form action="{{ route('galeri.destroy', ['id' => $row->id_sertif]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </tbody>
             </table>
         </div>
+
+
 
         <!-- Modal untuk tambah data -->
         <div class="modal fade modal-dialog-scrollable" id="modalTambah" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -108,6 +179,11 @@
         <!-- Hapus script Bootstrap yang tidak perlu -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
             crossorigin="anonymous"></script>
+            <script>
+                function setCategory(category) {
+                    document.getElementById('kategori').value = category;
+                }
+            </script>
     </body>
 
     </html>

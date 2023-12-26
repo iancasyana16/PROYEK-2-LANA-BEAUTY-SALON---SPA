@@ -1,11 +1,11 @@
-{{-- @extends('layoutadmin.galeri.main') --}}
+{{-- @extends('layoutadmin.galeri.main')
 @extends('layoutadmin.main')
 @section('content')
 <section class="position-relative">
     <img src="/asset/img/bcgaleri.png" alt="nn" class="img-fluid w-100" style="margin-top: -2px">
     <div class="position-absolute top-50 start-50 translate-middle text-center text-white" >
         <h2><b style="font-family: cursive;">Gallery/Home</b></h2>
-        {{-- <p>Isi teks Anda di sini. Anda dapat menambahkan paragraf atau elemen HTML lainnya.</p> --}}
+        <p>Isi teks Anda di sini. Anda dapat menambahkan paragraf atau elemen HTML lainnya.</p>
     </div>
 </section>
 
@@ -64,4 +64,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

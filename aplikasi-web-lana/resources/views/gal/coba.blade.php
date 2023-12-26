@@ -108,36 +108,36 @@
         </div>
         <div class="d-flex p-2 flex-wrap">
             @foreach ($sertif as $index => $item)
+            @if ($item->kategori == 'sertifikat')
                 <div class="flex w-25 h-25 p-3 col-md-4 justify-content-center">
-                    @if ($item->kategori == 'sertifikat')
                         <div class="gambar-kotak" style="" data-bs-toggle="modal" data-bs-target="#modalSertifikat{{$index}}">
                             <img class="img-fluid" src="{{ asset('storage/images/' . $item->foto)}}" alt="Sertifikat 1">
                             <div class="teks-atas">Teks Atas</div>
                             <div class="teks-bawah">Teks Bawah</div>
                         </div>
-                        @endif
                     </div>
 
                     <!-- Modal -->
                     <div class="modal fade" id="modalSertifikat{{$index}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                        <div class="modal-body">
-                            <img  class="img-fluid" src="{{ asset('storage/images/' . $item->foto)}}" alt="Sertifikat 1" >
-                            <div class="teks-atas d-flex justify-content-between">
-                                <p class="my-auto"> Isi Judul</p>
-                                <div class="d-flex gap-5 my-auto" >
-                                    <p>more info</p>
-                                    <button type="button" class="btn-close justify-content-end" aria-label="Close" data-bs-dismiss="modal"></button>
-                                </div>
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img  class="img-fluid" src="{{ asset('storage/images/' . $item->foto)}}" alt="Sertifikat 1" >
+                                    <div class="teks-atas d-flex justify-content-between">
+                                        <p class="my-auto"> Isi Judul</p>
+                                        <div class="d-flex gap-5 my-auto" >
+                                            <p>more info</p>
+                                            <button type="button" class="btn-close justify-content-end" aria-label="Close" data-bs-dismiss="modal"></button>
+                                        </div>
 
+                                    </div>
+                                    <div class="teks-bawah">Teks Bawah</div>
+                                </div>
                             </div>
-                            <div class="teks-bawah">Teks Bawah</div>
-                        </div>
                         </div>
                     </div>
-                    </div>
-            @endforeach
+                    @endif
+                    @endforeach
         </div>
 
         <div class="row">
@@ -148,16 +148,15 @@
             </div>
           </div>
           <div class="d-flex p-2 flex-wrap">
-            @foreach ($sertif as $index => $item1)
-                  <div class="flex w-25 h-25 p-3 col-md-4 justify-content-center">
-                    @if ($item1->kategori == 'kegiatan')
+              @foreach ($sertif as $index => $item1)
+              @if ($item1->kategori == 'kegiatan')
+              <div class="flex w-25 h-25 p-3 col-md-4 justify-content-center">
                           <div class="gambar-kotak" style="" data-bs-toggle="modal" data-bs-target="#modalKegiatan{{$index}}">
                               <img class="img-fluid" src="{{ asset('storage/images/' . $item1->foto)}}" alt="Sertifikat 1">
                               <div class="teks-atas">Teks Atas</div>
                               <div class="teks-bawah">Teks Bawah</div>
                           </div>
-                          @endif
-                      </div>
+                        </div>
 
                       <!-- Modal -->
                       <div class="modal fade" id="modalKegiatan{{$index}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -178,7 +177,8 @@
                           </div>
                       </div>
                       </div>
-              @endforeach
+                        @endif
+                        @endforeach
           </div>
 
     </div>

@@ -40,3 +40,6 @@ Route::resource('galeri', galeriController::class);
 Route::get('/galeri', [galeriController::class,'index'])->name('Galeri.index');
 Route::get('/gal/coba', [galeriController::class, 'coba']);
 Route::get('/galeri/{kategori}', [galeriController::class, 'showByCategory'])->name('galeri.showByCategory');
+Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
+Route::delete('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
+
