@@ -1,10 +1,6 @@
 @extends('layout.mainadmin')
 @section('content')
 
-
-
-
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -43,8 +39,13 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $row->judul_kegiatan }}</td>
-                            <td><img class="img-thumbnail" src="{{ asset('storage/images/' . $row->foto) }}"
-                                    alt="Gambar 1"></td>
+                            <td class="justify-items-center">
+                            <div class="container-center" style="width: 350px; height: auto;">
+                                <div class="aspect-ratio" style="width: 100%;">
+                                    <img class="img-thumbnail aspect-ratio-item" src="{{ asset('storage/images/' . $row->foto) }}" alt="Gambar 1">
+                                </div>
+                            </div>
+                            </td>
                             <td>{{ $row->caption_kegiatan }}</td>
                             <td>
                                 <a href="#" type="button" class="btn btn-warning" data-bs-toggle="modal"
@@ -72,7 +73,7 @@
                                             <div class="mb-3">
                                                 <label for="judul_kegiatan" class="form-label">Judul Kegiatan</label>
                                                 <input type="text" class="form-control" id="judul_kegiatan" name="judul_kegiatan"
-                                                    placeholder="contoh: Bakti Sosial" value="{{ $row->judul_kegiatan }}" required>
+                                                    value="{{ $row->judul_kegiatan }}" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="foto" class="form-label">Foto 1</label>
@@ -82,7 +83,7 @@
                                             <div class="mb-3">
                                                 <label for="caption_kegiatan" class="form-label">Caption Kegiatan</label>
                                                 <input type="text" class="form-control" id="caption_kegiatan" name="caption_kegiatan"
-                                                    placeholder="contoh: isi kegiatan" value="{{ $row->caption_kegiatan }}" required>
+                                                    value="{{ $row->caption_kegiatan }}" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="kategori" class="form-label">Kategori</label>

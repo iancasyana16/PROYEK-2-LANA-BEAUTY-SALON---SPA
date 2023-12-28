@@ -9,16 +9,23 @@ class LoginRegisterController extends Controller
 {
     public function registerindex()
     {
-        return view ('user/register');
+        return view('user.register');
     }
 
     public function registerPost(Request $request)
     {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|unique:users|max:255',
+            'telepon' => 'required|string|max:20',
+            'password' => 'required|string|min:8',
+        ]);
+
         $user = new User();
         $user->nama = $request->nama;
         $user->email = $request->email;
         $user->telepon = $request->telepon;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->save();
 
         return back()->with('success', 'Register Successfully');
@@ -26,20 +33,30 @@ class LoginRegisterController extends Controller
 
     public function loginindex()
     {
-        return view ('user.login');
+        return view('user.login');
     }
 
     public function loginPost(Request $request)
     {
-        $credetials = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
 
-        if (auth()->attempt($credetials)) {
-            return redirect()->route('/home')->with('success', 'Login berhasil');
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && password_verify($request->password, $user->password)) {
+            // Login successful
+            return redirect()->route('home.index')->with('success', 'Login berhasil');
         }
 
         return back()->with('error', 'Email atau Password Salah');
-        }
+    }
+    public function logout(Request $request)
+    {
+        // Clear the user session manually
+        $request->session()->forget('user');
+
+        return redirect('/login')->with('success', 'Logout berhasil');
+    }
 }

@@ -21,11 +21,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/galeri">Gallery</a>
                     </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('loginPost') }}">Logout</a>
+                    </li> --}}
                 </ul>
             </div>
         </div>
 
         <form class="d-flex gap-1 fs-5">
+            <a href="{{ route('loginPost') }}">Logout</a>
             {{-- <a href="{{ route('login') }}" class="btn text-decoration-underline text-white">Login</a>
             <a href="{{ route('register') }}" class="btn btn-light">Sign Up</a> --}}
         </form>

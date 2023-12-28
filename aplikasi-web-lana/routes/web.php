@@ -6,8 +6,14 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\settingController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\galeriController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/admin/dashboard', function() {
+// Route::get('/home', function() {
+//     return view('home.index');
+// });
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+
+Route::get('/admin/dashboard', function () {
     return view('admin/dashboard.index');
 });
 Route::get('/login', function () {
@@ -19,13 +25,14 @@ Route::get('/register', function () {
 Route::get('/edit profil', function () {
     return view('/user.index');
 });
-Route::get('/login', [loginRegisterController::class,'loginindex'])->name('loginindex');
+Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
 // Route::get('/login', 'loginController@loginindex')->name('loginindex');
-Route::post('/login', [loginRegisterController::class,'loginPost'])->name('loginPost');
-Route::get('/register', [loginRegisterController::class,'registerindex'])->name('registerindex');
-Route::post('/register', [loginRegisterController::class,'registerPost'])->name('registerPost');
+Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
+Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
+Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
+Route::get('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function() {
+Route::get('/dashboard', function () {
     return view('/admin/dashboard.index');
 })->name('dashboard');
 
@@ -37,9 +44,20 @@ Route::get('/admin/layanan/delete', [LayananController::class, 'destroy'])->name
 
 
 Route::resource('galeri', galeriController::class);
-Route::get('/galeri', [galeriController::class,'index'])->name('Galeri.index');
+Route::get('/galeri', [galeriController::class, 'index'])->name('Galeri.index');
 Route::get('/gal/coba', [galeriController::class, 'coba']);
 Route::get('/galeri/{kategori}', [galeriController::class, 'showByCategory'])->name('galeri.showByCategory');
 Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
 Route::delete('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
 
+Route::get('/profil', function (){
+    return view('penjual.setting');
+});
+
+Route::get('idiprofile', function (){
+    return view('profile.isiprofile');
+});
+
+Route::get('setting',function (){
+    return view('/penjual.setting');
+});
