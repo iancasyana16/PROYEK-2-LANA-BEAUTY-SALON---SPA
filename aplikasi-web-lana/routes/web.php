@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\settingController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\galeriController;
+<<<<<<< HEAD
 use App\Http\Controllers\HomeController;
 
 // Route::get('/home', function() {
@@ -41,8 +43,30 @@ Route::get('/admin/layanan/create', [LayananController::class, 'create'])->name(
 Route::get('/admin/layanan/store', [LayananController::class, 'store'])->name('read');
 Route::get('/admin/layanan/edit', [LayananController::class, 'edit'])->name('update');
 Route::get('/admin/layanan/delete', [LayananController::class, 'destroy'])->name('delete');
+=======
+use App\Http\Controllers\PageController;
 
+//route controller page user
+Route::get('/', [PageController::class, 'home'])->name('homepage');
+Route::get('/layanan', [PageController::class, 'layanan'])->name('layanan');
+Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
+Route::get('/booking', [PageController::class, 'booking'])->name('booking');
 
+//route controller page admin dashboaard
+Route::get('/dashboard/home', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard/user', [DashboardController::class, 'dashboardUser'])->name('user');
+Route::get('/dashboard/layanan', [DashboardController::class, 'dashboardLayanan'])->name('layanan');
+Route::get('/dashboard/booking', [DashboardController::class, 'dashboardBooking'])->name('booking');
+Route::get('/dashboard/gallery', [DashboardController::class, 'dashboardGallery'])->name('gallery');
+Route::get('/dashboard/setting', [DashboardController::class, 'dashboardSetting'])->name('setting');
+>>>>>>> 7fe0271e1b70be3965a5f378108be04afa0eca80
+
+//route controller admin layanan
+Route::post('/layanan/store', [LayananController::class, 'store'])->name('create');
+Route::get('/layanan/edit', [LayananController::class, 'edit'])->name('update');
+Route::get('/layanan/delete/{id}', [LayananController::class, 'destroy'])->name('delete');
+
+//route gallery
 Route::resource('galeri', galeriController::class);
 Route::get('/galeri', [galeriController::class, 'index'])->name('Galeri.index');
 Route::get('/gal/coba', [galeriController::class, 'coba']);
@@ -50,6 +74,7 @@ Route::get('/galeri/{kategori}', [galeriController::class, 'showByCategory'])->n
 Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
 Route::delete('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
 
+<<<<<<< HEAD
 Route::get('/profil', function (){
     return view('penjual.setting');
 });
@@ -61,3 +86,11 @@ Route::get('idiprofile', function (){
 Route::get('setting',function (){
     return view('/penjual.setting');
 });
+=======
+//route login dan regiter
+Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
+// Route::get('/login', 'loginController@loginindex')->name('loginindex');
+Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
+Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
+Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
+>>>>>>> 7fe0271e1b70be3965a5f378108be04afa0eca80
