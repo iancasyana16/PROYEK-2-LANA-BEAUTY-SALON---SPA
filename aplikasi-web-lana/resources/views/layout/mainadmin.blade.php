@@ -22,6 +22,9 @@
     {{-- Bootstrap 5 --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- summernote -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+
 
 
     <style>
@@ -78,8 +81,13 @@
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
+
+    {{-- js --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <!-- Include Summernote CSS and JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 
     <!-- Page specific script -->
     <script>
@@ -98,6 +106,24 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 100, // Set the height of the editor
+                // Add any other Summernote options you need
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#summernoteEdit').summernote({
+                height: 100, // Set the height of the editor
+                // Add any other Summernote options you need
             });
         });
     </script>

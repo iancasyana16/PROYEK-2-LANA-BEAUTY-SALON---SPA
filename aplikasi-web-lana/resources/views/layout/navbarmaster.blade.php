@@ -19,7 +19,7 @@
                     </li>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/galeri">Gallery</a>
+                        <a class="nav-link active" href="/gallery">Gallery</a>
                     </li>
                 </ul>
             </div>
