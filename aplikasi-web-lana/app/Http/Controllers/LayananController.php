@@ -37,11 +37,39 @@ class LayananController extends Controller
         return redirect(url('dashboard/layanan'))->with('success', 'Layanan berhasil ditambahkan');
     }
 
-    public function update(Request $request, Layanan $layanan)
+    public function edit($id)
     {
-        $layanan->update($request->all());
-        return redirect()->route('admin/layanan.index')->with('success', 'Layanan berhasil diperbarui');
+        $layanan = Layanan::find($id);
+        return view('admin.layanan.edit', compact('layanan'));
     }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama_layanan' => 'required|string',
+            'foto_layanan' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Sesuaikan aturan validasi untuk gambar
+            'desk_layanan' => 'required|string',
+            'harga_layanan' => 'required|numeric',
+        ]);
+
+        $ubahlayan = Layanan::find($id);
+        $fileName = $ubahlayan->foto_layanan;
+
+        if ($request->hasFile('foto_layanan')) {
+            $file = $request->file('foto_layanan');
+            $fileName = time() . "_" . $file->getClientOriginalName();
+            $file->storeAs('public/images', $fileName);
+        }
+
+        $ubahlayan->update([
+            'nama_layanan' => $request->nama_layanan,
+            'foto_layanan' => $fileName,
+            'desk_layanan' => $request->desk_layanan,
+            'harga_layanan' => $request->harga_layanan,
+        ]);
+
+        return redirect()->route('layanan')->with('success', 'Layanan berhasil diperbarui');
+    }
+
 
     public function destroy($id)
     {

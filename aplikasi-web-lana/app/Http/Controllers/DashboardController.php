@@ -29,10 +29,10 @@ class DashboardController extends Controller
         return view('admin.booking.index');
     }
 
-    public function dashboardGallery()
-    {
-        return view('admin.layanan.index');
-    }
+    // public function dashboardGallery()
+    // {
+    //     return view('admin.layanan.index');
+    // }
 
     public function dashboardSetting()
     {

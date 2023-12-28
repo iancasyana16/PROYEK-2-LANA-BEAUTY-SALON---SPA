@@ -107,7 +107,7 @@
                                     @foreach ($layanan as $index => $row)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
-                                            <td> <img src="{{ asset('storage/images' . $row->foto_layanan) }}"
+                                            <td> <img src="{{ asset('storage/images/' . $row->foto_layanan) }}"
                                                     alt="Foto Layanan">
                                             </td>
                                             <td>{{ $row->nama_layanan }}</td>
@@ -117,12 +117,12 @@
                                                 {{-- <a href="" class="btn btn-primary">edit</a> --}}
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#edit">
+                                                    data-bs-target="#edit{{$row->id}}">
                                                     Edit
                                                 </button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="edit" data-bs-backdrop="static"
+                                                <div class="modal fade" id="edit{{$row->id}}" data-bs-backdrop="static"
                                                     data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg">
@@ -134,9 +134,11 @@
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{ url('layanan/update') }}" method="POST"
+                                                                <form action="{{  route('admin.layanan.update', ['id' =>$row->id]) }}" method="POST"
                                                                     enctype="multipart/form-data">
                                                                     @csrf
+                                                                    <!-- Input Tersembunyi untuk ID Layanan -->
+                                                                    {{-- <input type="hidden" name="id" value="{{ $row->id }}"> --}}
                                                                     <div class="row mb-3">
                                                                         <label for="nama_layanan"
                                                                             class="col-sm-3 col-form-label">Nama
