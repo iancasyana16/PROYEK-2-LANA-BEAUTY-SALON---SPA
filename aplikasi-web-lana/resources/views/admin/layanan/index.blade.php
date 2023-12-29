@@ -2,6 +2,7 @@
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -16,23 +17,24 @@
                         </ol>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.container-fluid -->
         </section>
 
         <!-- Main content -->
         <section class="content">
 
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
+            <div class="card">
+                <div class="card-header">
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">
-                                + Data Layanan Baru
+                            <button type="button" class="btn btn-primary fw-bold float-start" data-bs-toggle="modal"
+                                data-bs-target="#tambah">
+                                <i class="fa-solid fa-plus" style="color: #ffffff; p-2"></i> Data Layanan Baru
                             </button>
-
-                            <!-- Modal -->
+                            <!-- Modal tambah data -->
                             <div class="modal fade" id="tambah" data-bs-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
@@ -87,43 +89,58 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 420px;">
-                            <table class="table table-head-fixed text-nowrap">
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Foto Layanan</th>
                                         <th>Nama Layanan</th>
-                                        <th>Deskripsi</th>
                                         <th>Harga</th>
-                                        <th>Opsi</th>
+                                        <th class="text-center">Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($layanan as $index => $row)
                                         <tr>
-                                            <td>{{ $index + 1 }}</td>
-                                            <td> <img src="{{ asset('storage/images/' . $row->foto_layanan) }}"
-                                                    alt="Foto Layanan">
+                                            <td class="fw-bold fs-5 text-center" style="width: 20px; height: 20px;">
+                                                {{ $index + 1 }}
                                             </td>
-                                            <td>{{ $row->nama_layanan }}</td>
-                                            <td>{!! $row->desk_layanan !!}</td>
-                                            <td>{{ $row->harga_layanan }}</td>
-                                            <td>
-                                                {{-- <a href="" class="btn btn-primary">edit</a> --}}
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#edit{{$row->id}}">
-                                                    Edit
+                                            <td class="fw-bold fs-5" style="width: 250px;">
+                                                {{ $row->nama_layanan }}
+                                            </td>
+                                            <td style="width: 100px;">
+                                                <span class="fw-bold fs-5">Rp. {{ $row->harga_layanan }}
+                                                </span>
+                                            </td>
+                                            <td style="width: 80px;" class="">
+
+                                                <!-- Button trigger modal edit -->
+                                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                    data-bs-target="#edit{{ $row->id }}">
+                                                    <i class="fa-solid fa-pen-to-square" style="color: #000000;"></i>
                                                 </button>
 
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="edit{{$row->id}}" data-bs-backdrop="static"
-                                                    data-bs-keyboard="false" tabindex="-1"
+                                                <!-- Button trigger modal hapus -->
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#hapus">
+                                                    <i class="fa-solid fa-trash" style="color: #000000;"></i>
+                                                </button>
+
+                                                {{-- button show  --}}
+                                                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                                    data-bs-target="#show{{ $row->id }}">
+                                                    <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                                                </button>
+
+                                                <!-- Modal edit -->
+                                                <div class="modal fade" id="edit{{ $row->id }}"
+                                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
@@ -134,8 +151,9 @@
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{  route('admin.layanan.update', ['id' =>$row->id]) }}" method="POST"
-                                                                    enctype="multipart/form-data">
+                                                                <form
+                                                                    action="{{ route('admin.layanan.update', ['id' => $row->id]) }}"
+                                                                    method="POST" enctype="multipart/form-data">
                                                                     @csrf
                                                                     <!-- Input Tersembunyi untuk ID Layanan -->
                                                                     {{-- <input type="hidden" name="id" value="{{ $row->id }}"> --}}
@@ -154,12 +172,12 @@
                                                                             class="col-sm-3 col-form-label">Foto
                                                                             Layanan</label>
                                                                         <div class="col-sm-9">
+                                                                            <img class="img-thumbnail img-fluid text-center"
+                                                                                src="{{ asset('storage/images/' . $row->foto_layanan) }}"
+                                                                                alt="Foto Layanan" style="height: 150">
                                                                             <input type="file" class="form-control"
                                                                                 id="foto_layanan" name="foto_layanan"
                                                                                 required>
-                                                                            <img src="{{ asset('storage/images' . $row->foto_layanan) }}"
-                                                                                alt="Foto Layanan"
-                                                                                style="max-width: 100%; margin-top: 20px;">
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-3">
@@ -169,7 +187,8 @@
                                                                         <div class="col-sm-9">
                                                                             <input type="number" class="form-control"
                                                                                 id="harga_layanan" name="harga_layanan"
-                                                                                required value="{{ $row->harga_layanan }}">
+                                                                                required
+                                                                                value="{{ $row->harga_layanan }}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-3">
@@ -192,13 +211,7 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- Button trigger modal hapus -->
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#hapus">
-                                                    Hapus
-                                                </button>
-
-                                                <!-- Modal -->
+                                                <!-- Modal hapus -->
                                                 <div class="modal fade" id="hapus" data-bs-backdrop="static"
                                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="hapusLabel"
                                                     aria-hidden="true">
@@ -214,10 +227,62 @@
                                                                 Apakah Anda yakin ingin menghapus Layanan ini?
                                                             </div>
                                                             <div class="modal-footer mx-auto">
-                                                                <button type="button" class="btn btn-secondary"
+                                                                <button type="button" class="btn btn-success"
                                                                     data-bs-dismiss="modal">Batal</button>
                                                                 <a href="{{ url('layanan/delete', ['id' => $row->id]) }}"
                                                                     class="btn btn-danger">Konfirmasi</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Modal show -->
+                                                <div class="modal fade" id="show{{ $row->id }}"
+                                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                    aria-labelledby="hapusLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body text-left">
+                                                                <div class="row">
+                                                                    <img class="img-thumbnail img-fluid text-center"
+                                                                        src="{{ asset('storage/images/' . $row->foto_layanan) }}"
+                                                                        alt="Foto Layanan">
+                                                                </div>
+                                                                <div class="row my-2">
+                                                                    <div class="col-sm-12 fw-bold my-1">
+                                                                        Nama Layanan
+                                                                    </div>
+                                                                    <div class="col-sm-12 rounded">
+                                                                        <div class="card rounded p-2">
+                                                                            {{ $row->nama_layanan }}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row my-2">
+                                                                    <div class="col-sm-12 fw-bold my-1">
+                                                                        Harga Layanan
+                                                                    </div>
+                                                                    <div class="col-sm-12 rounded">
+                                                                        <div class="card rounded p-2">
+                                                                            {{ $row->harga_layanan }}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row my-2">
+                                                                    <div class="col-sm-12 fw-bold my-1">
+                                                                        Deskripsi Layanan
+                                                                    </div>
+                                                                    <div class="col-sm-12 rounded">
+                                                                        <div class="card rounded p-2">
+                                                                            <p class=" text-wrap">{!! $row->desk_layanan !!}
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer mx-auto">
+                                                                <button type="button" class="btn btn-warning"
+                                                                    data-bs-dismiss="modal">Close</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -228,12 +293,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
             </div>
-            <!-- /.row -->
 
         </section>
         <!-- /.content -->

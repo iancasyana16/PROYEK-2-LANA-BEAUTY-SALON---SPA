@@ -21,9 +21,14 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nihil totam dolorem sint quidem
-                            magnam, facilis odit cumque iusto cupiditate quos ipsa sunt a adipisci quaerat, architecto
-                            consectetur fuga earum?
+                            Dalam setiap hari kerja, lihatlah setiap tugas sebagai kesempatan untuk tumbuh dan berkembang.
+                            Tanamkan semangat positif, karena setiap usaha membawa hasil. Ingatlah bahwa setiap langkah
+                            kecil adalah bagian dari perjalanan sukses. Hadapi tantangan dengan tekad dan rasa optimisme,
+                            karena di dalam kesulitan terdapat peluang. Tetap fokus pada tujuan dan nikmatilah perjalanan
+                            menuju kesuksesan. Jadikan setiap hari sebagai kesempatan baru untuk mencapai impian dan membawa
+                            dampak positif pada dunia sekitar. Selalu percayalah pada potensi diri sendiri dan lakukan yang
+                            terbaik. Sukses tidak datang begitu saja, tapi melalui kerja keras, ketekunan, dan keyakinan tak
+                            tergoyahkan.
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -82,14 +87,14 @@
                 </div>
                 <div class="col-md-4">
                     <!-- small card -->
-                    <div class="small-box bg-warning">
+                    <div class="small-box" style="background-color: #f012be">
                         <div class="inner">
                             <h3>150</h3>
 
                             <p>Galeri</p>
                         </div>
                         <div class="icon">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fa-solid fa-certificate"></i>
                         </div>
                         <a href="#" class="small-box-footer">
                             Selengkapnya <i class="fas fa-arrow-circle-right"></i>
