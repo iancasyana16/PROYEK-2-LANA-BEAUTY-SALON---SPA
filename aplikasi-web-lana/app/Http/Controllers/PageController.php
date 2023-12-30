@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('home.index');
+        return view('user.login');
     }
 
     public function layanan()

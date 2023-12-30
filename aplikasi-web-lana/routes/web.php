@@ -23,7 +23,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('/user.register');
 });
-Route::get('/edit profil', function () {
+Route::get('/editprofil', function () {
     return view('/user.index');
 });
 Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
@@ -45,7 +45,7 @@ Route::get('/admin/layanan', [LayananController::class, 'index'])->name('layanan
 use App\Http\Controllers\PageController;
 
 //route controller page user
-// Route::get('/', [PageController::class, 'home'])->name('homepage');
+Route::get('/', [PageController::class, 'home'])->name('homepage');
 Route::get('/layanan', [PageController::class, 'layanan'])->name('layanan');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/booking', [PageController::class, 'booking'])->name('booking');
