@@ -301,4 +301,15 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        $(document).ready(function() {
+    // Inisialisasi Summernote untuk setiap elemen textarea dengan ID unik
+    @foreach ($layanan as $row)
+        $('#summernoteEdit').summernote({
+            // konfigurasi Summernote jika diperlukan
+        });
+    @endforeach
+});
+
+    </script>
 @endsection
