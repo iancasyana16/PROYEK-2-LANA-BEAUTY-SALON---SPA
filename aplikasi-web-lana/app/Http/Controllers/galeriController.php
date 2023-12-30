@@ -11,7 +11,7 @@ class GaleriController extends Controller
     public function index()
     {
         $sertif = Sertifikat::all();
-        return view('galeri.index', compact('sertif'));
+        return view('admin.galeri.index', compact('sertif'));
     }
 
     public function coba()
