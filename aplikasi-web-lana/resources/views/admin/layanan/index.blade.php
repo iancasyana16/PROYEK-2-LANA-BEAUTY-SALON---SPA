@@ -37,7 +37,7 @@
                             <!-- Modal tambah data -->
                             <div class="modal fade" id="tambah" data-bs-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Layanan Baru</h5>
@@ -102,44 +102,44 @@
                                         <th>ID</th>
                                         <th>Nama Layanan</th>
                                         <th>Harga</th>
-                                        <th class="text-center">Opsi</th>
+                                        <th>Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($layanan as $index => $row)
                                         <tr>
-                                            <td class="fw-bold fs-5 text-center" style="width: 20px; height: 20px;">
-                                                {{ $index + 1 }}
+                                            <td class="text-center" style="width: 20px;">
+                                                {{ $index += 1 }}
                                             </td>
-                                            <td class="fw-bold fs-5" style="width: 250px;">
+                                            <td class="" style="width: 250px;">
                                                 {{ $row->nama_layanan }}
                                             </td>
                                             <td style="width: 100px;">
-                                                <span class="fw-bold fs-5">Rp. {{ $row->harga_layanan }}
+                                                <span class="">Rp. {{ $row->harga_layanan }}
                                                 </span>
                                             </td>
                                             <td style="width: 80px;" class="">
 
                                                 <!-- Button trigger modal edit -->
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                                    data-bs-target="#edit{{ $row->id }}">
-                                                    <i class="fa-solid fa-pen-to-square" style="color: #000000;"></i>
+                                                    id="editButton" data-bs-target="#edit{{ $index }}">
+                                                    <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
                                                 </button>
 
                                                 <!-- Button trigger modal hapus -->
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#hapus">
-                                                    <i class="fa-solid fa-trash" style="color: #000000;"></i>
+                                                    <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
                                                 </button>
 
                                                 {{-- button show  --}}
                                                 <button type="button" class="btn btn-info" data-bs-toggle="modal"
                                                     data-bs-target="#show{{ $row->id }}">
-                                                    <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                                                    <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                                                 </button>
 
                                                 <!-- Modal edit -->
-                                                <div class="modal fade" id="edit{{ $row->id }}"
+                                                <div class="modal fade" id="edit{{ $index }}"
                                                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg">
@@ -217,11 +217,9 @@
                                                     aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
-                                                            <div class="modal-header">
+                                                            <div class="modal-header mx-auto">
                                                                 <h5 class="modal-title" id="hapusLabel">Konfirmasi Hapus
                                                                     Data</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body text-center">
                                                                 Apakah Anda yakin ingin menghapus Layanan ini?
@@ -240,7 +238,7 @@
                                                 <div class="modal fade" id="show{{ $row->id }}"
                                                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="hapusLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-body text-left">
                                                                 <div class="row">

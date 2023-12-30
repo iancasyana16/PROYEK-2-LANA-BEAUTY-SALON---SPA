@@ -128,6 +128,12 @@
         });
     </script>
 
+    <script>
+        function setCategory(category) {
+            document.getElementById('kategori').value = category;
+        }
+    </script>
+
 </body>
 
 </html>
