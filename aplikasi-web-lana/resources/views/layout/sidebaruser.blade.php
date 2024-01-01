@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="items-link text-xl flex items-center gap-2 p-2 hover:bg-black rounded-lg">
+                <a href="{{ route('loginPost') }}" class="items-link text-xl flex items-center gap-2 p-2 hover:bg-black rounded-lg">
                     <i class="bi bi-box-arrow-left"></i>
                     <p>Logout</p>
                 </a>

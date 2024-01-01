@@ -30,12 +30,12 @@ class Salon extends Model
         'twitter',
     ];
 
-    protected $casts = [
-        'weekday_buka' => 'time',
-        'weekday_tutup' => 'time',
-        'weekend_buka' => 'time',
-        'weekend_tutup' => 'time',
-    ];
+    // protected $casts = [
+    //     'weekday_buka' => 'time',
+    //     'weekday_tutup' => 'time',
+    //     'weekend_buka' => 'time',
+    //     'weekend_tutup' => 'time',
+    // ];
 
     // Jika diperlukan, definisikan relasi atau metode lainnya di sini
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Layanan;
+use App\Models\Salon;
+use App\Models\Admin;
 
 
 class DashboardController extends Controller
@@ -36,6 +38,9 @@ class DashboardController extends Controller
 
     public function dashboardSetting()
     {
-        return view('admin.setting.index');
+        $salon = Salon::all();
+        $admin = Admin::all();
+        return view('admin.setting.index', compact('salon', 'admin'));
+
     }
 }

@@ -34,26 +34,28 @@
 <div id="default-tab-content">
     <div class="hidden" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     {{-- <div class="hidden p-2 rounded-lg bg-white dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab"> --}}
-
-        <form>
+    @foreach ($admin as $item1)
+        <form action="{{ route('admin.settingprofil.update') . '?idAdmin=' . $item1->idAdmin }} " method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
             <div class="p-5 bg-white drop-shadow-lg rounded-xl">
                 <h4 class="font-semibold">Detail Profile</h4>
                 <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="mb-6">
-                    <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                    <input type="text" id="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Freya" required>
+                    <label for="namaAdmin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                    <input type="text" name="namaAdmin" id="namaAdmin" value="{{ $item1->namaAdmin}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Freya" required>
                 </div>
                 <div class="mb-6">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="freya@gmail.com" required>
+                    <label for="emailAdmin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <input type="email" name="emailAdmin" id="emailAdmin" disabled value="{{ $item1->emailAdmin}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="freya@gmail.com" required>
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                    <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Password" required>
+                    <input type="password" id="password" value="*******" disabled class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Password" required>
                 </div>
                 <div class="mb-6">
-                    <label for="nohp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor HP</label>
-                    <input type="text" id="nohp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="088754337686" required>
+                    <label for="no_hp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor HP</label>
+                    <input type="text" name="no_hp" id="no_hp" value="{{ $item1->no_hp}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="088754337686" required>
                 </div>
 
                 <div class="flex flex-row-reverse gap-2">
@@ -87,6 +89,7 @@
             </div>
 
         </form>
+    @endforeach
 
     </div>
 
@@ -94,9 +97,9 @@
 
     @foreach ($salon as $item)
 
-        <form action="{{ route('admin.setting.update', ['id_salon => $item->id_salon'])}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.setting.update') . '?id_salon=' . $item->id_salon }} " method="POST" enctype="multipart/form-data">
             @csrf
-            {{-- @method('PUT') --}}
+            @method('PUT')
             <div class="p-5 bg-white drop-shadow-lg rounded-xl">
                 <h4 class="font-semibold">Informasi Toko</h4>
                 <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
@@ -108,13 +111,13 @@
                 <div class="grid mb-3 md:grid-cols-1">
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="foto_salon">Foto Toko</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="foto_salon" type="file" name="foto_salon" value="{{ $item->foto_salon}}">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="foto_salon" type="file" accept="image/*" name="foto_salon" value="{{ $item->foto_salon}}">
                     </div>
                 </div>
                 <div class="grid mb-3 md:grid-cols-1">
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="logo_salon" name="logo_salon">Logo Toko</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="logo_salon" name="logo_salon" value="{{ $salon->logo_salon}}" type="file">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="logo_salon">Logo Toko</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="logo_salon" name="logo_salon" value="{{ $item->logo_salon}}" accept="image/*" type="file">
                     </div>
                 </div>
 
@@ -136,22 +139,22 @@
 
                 <div class="mb-3 mt-4">
                     <label for="alamat_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat Toko</label>
-                    <textarea id="alamat_salon" name="alamat_salon" value="{{ $salon->alamat_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non"></textarea>
+                    <textarea id="alamat_salon" name="alamat_salon" value="" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non">{{ $item->alamat_salon}}</textarea>
                 </div>
 
                 <div class="mb-3 mt-4">
                     <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi Toko</label>
-                    <textarea id="deskripsi" name="deskripsi" value="{{ $salon->deskripsi}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non"></textarea>
+                    <textarea id="deskripsi" name="deskripsi" value="" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non">{{ $item->deskripsi}}</textarea>
                 </div>
 
                 <div class="mb-3">
                     <label for="visi_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi Toko</label>
-                    <textarea id="visi_salon" name="visi_salon" value="{{ $salon->visi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem."></textarea>
+                    <textarea id="visi_salon" name="visi_salon" value="{{ $item->visi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem."></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label for="misi_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi Toko</label>
-                    <textarea id="misi_salon" name="misi_salon" value="{{ $salon->misi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, scelerisque vel egestas non"></textarea>
+                    <textarea id="misi_salon" name="misi_salon" value="{{ $item->misi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, scelerisque vel egestas non"></textarea>
                 </div>
 
             </div>
@@ -162,21 +165,21 @@
                 <div class="grid gap-6 mb-3 md:grid-cols-3">
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekday_buka">Weekday Buka</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekday_buka" name="weekday_buka" value="{{ $salon->weekday_buka}}" type="time">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekday_buka" name="weekday_buka" value="{{ $item->weekday_buka}}" type="time">
                     </div>
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekday_tutup">Weekday Tutup</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekday_tutup" name="weekday_tutup" value="{{ $salon->weekday_tutup}}" type="time">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekday_tutup" name="weekday_tutup" value="{{ $item->weekday_tutup}}" type="time">
                     </div>
                 </div>
                 <div class="grid gap-6 mb-3 md:grid-cols-3">
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekend_buka">Weekend Buka</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekend_buka" name="weekend_buka" value="{{ $salon->weeekend_buka}}" type="time">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekend_buka" name="weekend_buka" value="{{ $item->weekend_buka}}" type="time">
                     </div>
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekend_tutup">Weekend Tutup</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekend_tutup" name="weekend_tutup" value="{{ $salon->weekend_tutup}}" type="time">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekend_tutup" name="weekend_tutup" value="{{ $item->weekend_tutup}}" type="time">
                     </div>
                 </div>
 
@@ -196,17 +199,17 @@
                 <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="mb-3">
                     <label for="facebok" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebok</label>
-                    <input type="text" name="facebook" value="{{ $salon->facebook}}" id="facebok" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" required>
+                    <input type="text" name="facebook" value="{{ $item->facebook}}" id="facebok" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" >
                 </div>
 
                 <div class="mb-3">
                     <label for="instagram" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram</label>
-                    <input type="text" name="instagram" value="{{ $salon->instagram}}" id="instagram" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" required>
+                    <input type="text" name="instagram" value="{{ $item->instagram}}" id="instagram" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" >
                 </div>
 
                 <div class="mb-3">
                     <label for="twitter" class="block mb-2 tetwittert-sm font-medium text-gray-900 dark:text-white">X</label>
-                    <input type="text" name="twitter" value="{{ $salon->twitter}}" id="twitter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" required>
+                    <input type="text" name="twitter" value="{{ $item->twitter}}" id="twitter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" >
                 </div>
 
                 <div class="flex flex-row-reverse gap-2">

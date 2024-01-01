@@ -86,11 +86,38 @@ class loginAdminController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified resource.
      */
-    public function update(Request $request, string $id)
+    public function edit(string $idAdmin)
     {
         //
+        $admin = Admin::find($idAdmin);
+        return view('admin.setting.index', compact('admin'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request)
+    {
+        //
+        $request->validate ([
+            'namaAdmin' => 'required',
+            'emailAdmin' => 'disabled',
+            'password' => 'disabled',
+            'no_hp' => 'required',
+
+        ]);
+        $idAdmin=$request->idAdmin;
+
+        $admin = Admin::findOrFail($idAdmin);
+        $admin->update([
+            'namaAdmin' => $request->namaAdmin,
+            'no_hp' => $request->no_hp,
+
+        ]);
+
+        return redirect()->back()->with('success', 'Data Salon berhasil diperbarui.');
     }
 
     /**

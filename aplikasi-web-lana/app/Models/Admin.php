@@ -20,6 +20,7 @@ class Admin extends Model
      */
 
     protected $table = 'admin';
+    protected $primaryKey = 'idAdmin';
     protected $fillable = [
         'namaAdmin',
         'emailAdmin',

@@ -98,6 +98,9 @@ use App\Http\Controllers\SalonController;
 Route::get('/admin/setting', [SalonController::class, 'index'])->name('admin.setting');
 Route::get('/admin/setting/edit/{id}', [SalonController::class, 'edit'])->name('admin.setting.edit');
 Route::put('/admin/setting/update', [SalonController::class, 'update'])->name('admin.setting.update');
+
+Route::get('/admin/setting/profil/edit/{id}', [loginAdminController::class, 'edit'])->name('admin.settingprofil.edit');
+Route::put('/admin/setting/profil/update', [loginAdminController::class, 'update'])->name('admin.settingprofil.update');
 // Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
 // Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
 // Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');

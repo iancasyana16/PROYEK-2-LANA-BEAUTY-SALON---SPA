@@ -17,16 +17,16 @@ return new class extends Migration
             $table->string('foto_salon');
             $table->string('logo_salon');
             $table->string('alamat_salon');
-            $table->text('deskripsi');
-            $table->text('visi_salon');
-            $table->text('misi_salon');
+            $table->text('deskripsi')-> nullable();
+            $table->text('visi_salon')-> nullable();
+            $table->text('misi_salon')-> nullable();
             $table->time('weekday_buka');
             $table->time('weekday_tutup');
             $table->time('weekend_buka');
             $table->time('weekend_tutup');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('twitter');
+            $table->string('facebook')-> nullable();
+            $table->string('instagram')-> nullable();
+            $table->string('twitter') -> nullable();
             $table->timestamps();
         });
     }
