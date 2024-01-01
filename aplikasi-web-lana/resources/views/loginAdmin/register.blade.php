@@ -28,34 +28,44 @@
                             {{ Session::get('success') }}
                         </div>
                     @endif
-                    <form id="registrationForm" action="{{ route('registerindex') }}" method="POST">
+                    <form id="registrationForm" action="{{ route('registerAdminIndex') }}" method="POST">
                         @csrf
                     <div class="mb-2">
-                        <label for="name" class="form-label">Nama Lengkap</label>
-                        <input type="text" name="nama" class="form-control" id="nama" required>
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="nama" name="nameAdmin" class="form-control" id="nama" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="text" class="form-label">Alamat</label>
+                        <input type="text" name="alamatAdmin" class="form-control" id="alamat" required>
                     </div>
                     <div class="mb-2">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" required>
-                    </div>
-                    <div class="mb-2">
-                        <label for="email" class="form-label">Nomor Telepon</label>
-                        <input type="number" name="telepon" class="form-control" id="telepon" required>
+                        <input type="email" name="emailAdmin" class="form-control" id="email" required>
                     </div>
                     <div class="mb-2">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
                     </div>
-                    <div class="mb-2">
+                    {{-- <div class="mb-2">
+                        <label for="nomor telpon" class="form-label">Nomor Telepon</label>
+                        <input type="number" name="telepon" class="form-control" id="telepon" required>
+                    </div> --}}
+                    {{-- <div class="mb-2">
                         <label for="password" class="form-label">Confirm Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
-                    </div>
+                    </div> --}}
                     <div class="mb-2">
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary" id="registerButton">REGISTER</button>
                         </div>
                     </div>
                     </form>
+                    <div class="txt-center nt-3 d-flex justify-content-center mt-3">
+                        <a>sudah memiliki akun?</a>
+                    </div>
+                    <div class="txt-center nt-3 d-flex justify-content-center">
+                        <a href="{{ route('loginAdminIndex')}}" class="nav-link text-primary">Masuk Disini</a>
+                    </div>
                 </div>
             </div>
         </div>

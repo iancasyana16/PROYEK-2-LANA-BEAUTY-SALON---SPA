@@ -21,17 +21,17 @@
                             <div class="listLabels space-y-2 flex flex-col justify-center">
                                 <div class="itemLabels">
                                     <div class="theLabels">
-                                        <label for="">Nama</label>
-                                    </div>
-                                </div>
-                                <div class="itemLabels">
-                                    <div class="theLabels">
-                                        <label for="">Nomor Hp</label>
+                                        <label for="">Nama Lengkap</label>
                                     </div>
                                 </div>
                                 <div class="itemLabels">
                                     <div class="theLabels">
                                         <label for="">Email</label>
+                                    </div>
+                                </div>
+                                <div class="itemLabels">
+                                    <div class="theLabels">
+                                        <label for="">Nomor Telepon</label>
                                     </div>
                                 </div>
                                 <div class="itemLabels">
@@ -55,32 +55,79 @@
                             <div class="listInputs space-y-2">
                                 <div class="itemInput">
                                     <div class="thInput">
-                                        <input type="text" name="" id="" class="border border-black outline-none w-full">
+                                        <div class="border border-black outline-none w-full ">
+                                            @if(session('user'))
+                                            {{ session('user')->nama }}
+                                        @else
+                                            Belum diisi
+                                        @endif
+                                        </div>
+                                        {{-- <input type="text" name="nama" id="" class="border border-black outline-none w-full"> --}}
+                                        @if(session('user'))
+                                            {{ session('user')->nama }}
+                                        @else
+
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="itemInput">
                                     <div class="thInput">
-                                        <input type="text" name="" id="" class="border border-black outline-none w-full">
+                                        <div class="border border-black outline-none w-full">
+                                            @if(session('user'))
+                                            {{ session('user')->email }}
+                                        @else
+                                            Belum diisi
+                                        @endif
+                                        </div>
+                                        {{-- <input type="text" name="email" id="" class="border border-black outline-none w-full"> --}}
                                     </div>
                                 </div>
                                 <div class="itemInput">
                                     <div class="thInput">
-                                        <input type="text" name="" id="" class="border border-black outline-none w-full">
+                                        <div class="border border-black outline-none w-full">
+                                            @if(session('user'))
+                                            {{ session('user')->nomor_telepon }}
+                                        @else
+                                            Belum diisi
+                                        @endif
+                                        </div>
+                                        {{-- <input type="text" name="nomor_telepon" id="" class="border border-black outline-none w-full"> --}}
                                     </div>
                                 </div>
                                 <div class="itemInput">
                                     <div class="thInput">
-                                        <input type="text" name="" id="" class="border border-black outline-none w-full">
+                                        <div class="border border-black outline-none w-full">
+                                            @if(session('user'))
+                                            {{ session('user')->Username }}
+                                        @else
+                                            Belum diisi
+                                        @endif
+                                        </div>
+                                        {{-- <input type="text" name="" id="" class="border border-black outline-none w-full"> --}}
                                     </div>
                                 </div>
                                 <div class="itemInput">
                                     <div class="thInput">
-                                        <input type="text" name="" id="" class="border border-black outline-none w-full">
+                                        <div class="border border-black outline-none w-full">
+                                            @if(session('user'))
+                                            {{ session('user')->password }}
+                                        @else
+                                            Belum diisi
+                                        @endif
+                                        </div>
+                                        {{-- <input type="text" name="" id="" class="border border-black outline-none w-full"> --}}
                                     </div>
                                 </div>
                                 <div class="itemInput">
                                     <div class="thInput">
-                                        <input type="text" name="" id="" class="border border-black outline-none w-full">
+                                        <div class="border border-black outline-none w-full">
+                                            @if(session('user'))
+                                            {{ session('user')->alamat }}
+                                        @else
+                                            Belum diisi
+                                        @endif
+                                        </div>
+                                        {{-- <input type="text" name="" id="" class="border border-black outline-none w-full"> --}}
                                     </div>
                                 </div>
                             </div>
