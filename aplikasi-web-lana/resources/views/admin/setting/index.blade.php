@@ -92,25 +92,27 @@
 
     <div class="hidden" id="toko" role="tabpanel" aria-labelledby="toko-tab">
 
-        <form>
+        <form action="{{ route('admin.setting.update' , ['id => $salon->id_salon'])}}" method="POST">
+            @csrf
+            @method('PUT')
             <div class="p-5 bg-white drop-shadow-lg rounded-xl">
                 <h4 class="font-semibold">Informasi Toko</h4>
                 <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="mb-6">
-                    <label for="namatoko" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Toko</label>
-                    <input type="text" id="namatoko" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="RHy COPYCENTER" required>
+                    <label for="nama_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Toko</label>
+                    <input type="text" name="nama_salon" value="{{ $salon->nama_salon}}" id="nama_salon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lana Beauty Salon & Spa" required>
                 </div>
 
                 <div class="grid mb-3 md:grid-cols-1">
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="fototoko">Foto Toko</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="fototoko" type="file">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="foto_salon">Foto Toko</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="foto_salon" type="file" name="foto_salon" value="{{ $salon->foto_salon}}">
                     </div>
                 </div>
                 <div class="grid mb-3 md:grid-cols-1">
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="logotoko">Logo Toko</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="logotoko" type="file">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="logo_salon" name="logo_salon">Logo Toko</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="logo_salon" name="logo_salon" value="{{ $salon->logo_salon}}" type="file">
                     </div>
                 </div>
 
@@ -131,23 +133,23 @@
                 <p class="text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG or JPG (MAX. 800x400px).</p>
 
                 <div class="mb-3 mt-4">
-                    <label for="alamatToko" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat Toko</label>
-                    <textarea id="alamatToko" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non"></textarea>
+                    <label for="alamat_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat Toko</label>
+                    <textarea id="alamat_salon" name="alamat_salon" value="{{ $salon->alamat_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non"></textarea>
                 </div>
 
                 <div class="mb-3 mt-4">
-                    <label for="descToko" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi Toko</label>
-                    <textarea id="descToko" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non"></textarea>
+                    <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi Toko</label>
+                    <textarea id="deskripsi" name="deskripsi" value="{{ $salon->deskripsi}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem. Morbi lectus mauris, scelerisque vel egestas non"></textarea>
                 </div>
 
                 <div class="mb-3">
-                    <label for="visiToko" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi Toko</label>
-                    <textarea id="visiToko" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem."></textarea>
+                    <label for="visi_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi Toko</label>
+                    <textarea id="visi_salon" name="visi_salon" value="{{ $salon->visi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem."></textarea>
                 </div>
 
                 <div class="mb-3">
-                    <label for="misiToko" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi Toko</label>
-                    <textarea id="misiToko" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, scelerisque vel egestas non"></textarea>
+                    <label for="misi_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi Toko</label>
+                    <textarea id="misi_salon" name="misi_salon" value="{{ $salon->misi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, scelerisque vel egestas non"></textarea>
                 </div>
 
             </div>
@@ -157,23 +159,29 @@
                 <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="grid gap-6 mb-3 md:grid-cols-3">
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="fotogaleri1">Foto galeri 1</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="fotogaleri1" type="file">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekday_buka">Weekday Buka</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekday_buka" name="weekday_buka" value="{{ $salon->weekday_buka}}" type="time">
                     </div>
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="fotogaleri2">Foto galeri 2</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="fotogaleri2" type="file">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekday_tutup">Weekday Tutup</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekday_tutup" name="weekday_tutup" value="{{ $salon->weekday_tutup}}" type="time">
                     </div>
-                    {{-- <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="fotogaleri3">Foto galeri 3</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="fotogaleri3" type="file">
-                    </div> --}}
+                </div>
+                <div class="grid gap-6 mb-3 md:grid-cols-3">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekend_buka">Weekend Buka</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekend_buka" name="weekend_buka" value="{{ $salon->weeekend_buka}}" type="time">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="weekend_tutup">Weekend Tutup</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="weekend_tutup" name="weekend_tutup" value="{{ $salon->weekend_tutup}}" type="time">
+                    </div>
                 </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="instagram" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram</label>
-                    <input type="text" id="instagram" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="rhycopycernter" required>
-                </div>
+                    <input type="text" name="instagram" id="instagram" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="rhycopycernter" required>
+                </div> --}}
 
                 {{-- <div class="mb-3">
                     <label for="x" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">X</label>
@@ -186,17 +194,17 @@
                 <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="mb-3">
                     <label for="facebok" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebok</label>
-                    <input type="text" id="facebok" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="RHy Copycernter" required>
+                    <input type="text" name="facebook" value="{{ $salon->facebook}}" id="facebok" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="instagram" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram</label>
-                    <input type="text" id="instagram" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="rhycopycernter" required>
+                    <input type="text" name="instagram" value="{{ $salon->instagram}}" id="instagram" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="x" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">X</label>
-                    <input type="text" id="x" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="rhycopycernter" required>
+                    <label for="twitter" class="block mb-2 tetwittert-sm font-medium text-gray-900 dark:text-white">X</label>
+                    <input type="text" name="twitter" value="{{ $salon->twitter}}" id="twitter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lanabeautysalon&spa" required>
                 </div>
 
                 <div class="flex flex-row-reverse gap-2">

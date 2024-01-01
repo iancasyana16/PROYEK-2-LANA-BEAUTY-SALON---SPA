@@ -68,7 +68,7 @@ Route::get('/layanan/delete/{id}', [LayananController::class, 'destroy'])->name(
 //route gallery
 Route::resource('galeri', galeriController::class);
 Route::get('/dashboard/gallery', [galeriController::class, 'index'])->name('Galeri.index');
-Route::get('/gal/coba', [galeriController::class, 'coba']);
+Route::get('/gal/coba', [galeriController::class, 'coba'])->name('gal.coba');
 Route::get('/galeri/{kategori}', [galeriController::class, 'showByCategory'])->name('galeri.showByCategory');
 Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
 Route::delete('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
@@ -81,12 +81,18 @@ Route::get('idiprofile', function (){
     return view('profile.isiprofile');
 });
 
-Route::get('setting',function (){
-    return view('/penjual.setting');
-});
+// Route::get('setting',function (){
+//     return view('/penjual.setting');
+// });
 //route login dan regiter
 Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
 // Route::get('/login', 'loginController@loginindex')->name('loginindex');
 Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
 Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
 Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
+
+
+use App\Http\Controllers\SalonController;
+Route::get('/admin/setting', [SalonController::class, 'setting'])->name('admin.setting');
+Route::get('/admin/setting/edit/{id}', [SalonController::class, 'edit'])->name('admin.setting.edit');
+Route::put('/admin/setting/update', [SalonController::class, 'update'])->name('admin.setting.update');

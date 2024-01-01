@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Layanan;
+use App\Models\Sertifikat;
+use App\Models\Salon;
 
 class PageController extends Controller
 {
@@ -20,11 +22,18 @@ class PageController extends Controller
 
     public function gallery()
     {
-        return view('gallery.index');
+        $sertif = Sertifikat::all();
+        return view('gal.coba', compact('sertif'));
     }
 
     public function booking()
     {
         return view('booking.index');
+    }
+    public function setting()
+    {
+        $salon = Salon::findOrFail(1);
+
+        return view('admin.setting.index', compact('salon'));
     }
 }
