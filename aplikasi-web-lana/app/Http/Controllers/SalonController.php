@@ -12,7 +12,8 @@ class SalonController extends Controller
      */
     public function index()
     {
-        //
+        $salon = Salon::all();
+        return view('admin.setting.index', compact('salon'));
     }
 
     /**
@@ -42,18 +43,17 @@ class SalonController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id_salon)
     {
         //
-        $salon = Salon::findOrFail($id);
-        // dd($salon);
+        $salon = Salon::find($id_salon);
         return view('admin.setting.index', compact('salon'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_salon)
     {
         //
         $request->validate([
@@ -73,8 +73,7 @@ class SalonController extends Controller
             'twitter' => 'required',
         ]);
 
-        $salon = Salon::findOrFail($id);
-
+        $salon = Salon::findOrFail($id_salon);
         $salon->update($request->all());
 
         return redirect()->route('admin.setting.index')->with('success', 'Data Salon berhasil diperbarui.');

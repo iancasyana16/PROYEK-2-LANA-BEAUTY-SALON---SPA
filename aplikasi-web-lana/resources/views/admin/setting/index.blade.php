@@ -92,21 +92,23 @@
 
     <div class="hidden" id="toko" role="tabpanel" aria-labelledby="toko-tab">
 
-        <form action="{{ route('admin.setting.update' , ['id => $salon->id_salon'])}}" method="POST">
+    @foreach ($salon as $item)
+
+        <form action="{{ route('admin.setting.update', ['id_salon => $item->id_salon'])}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
+            {{-- @method('PUT') --}}
             <div class="p-5 bg-white drop-shadow-lg rounded-xl">
                 <h4 class="font-semibold">Informasi Toko</h4>
                 <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="mb-6">
                     <label for="nama_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Toko</label>
-                    <input type="text" name="nama_salon" value="{{ $salon->nama_salon}}" id="nama_salon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lana Beauty Salon & Spa" required>
+                    <input type="text" name="nama_salon" value="{{ $item->nama_salon}}" id="nama_salon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lana Beauty Salon & Spa" required>
                 </div>
 
                 <div class="grid mb-3 md:grid-cols-1">
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="foto_salon">Foto Toko</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="foto_salon" type="file" name="foto_salon" value="{{ $salon->foto_salon}}">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="foto_salon" type="file" name="foto_salon" value="{{ $item->foto_salon}}">
                     </div>
                 </div>
                 <div class="grid mb-3 md:grid-cols-1">
@@ -239,6 +241,7 @@
             </div>
 
         </form>
+    @endforeach
 
     </div>
 

@@ -37,7 +37,7 @@
 
                     <div class="mb-2">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="email" required>
+                        <input type="email" name="emailAdmin" class="form-control" id="email" required>
                     </div>
                     <div class="mb-2">
                         <label for="password" class="form-label">Password</label>

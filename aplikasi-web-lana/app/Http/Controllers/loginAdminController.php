@@ -25,22 +25,22 @@ class loginAdminController extends Controller
     {
         $request->validate([
             'namaAdmin' => 'required|string|max:255',
-            'alamatAdmin' => 'required|string|max:255',
-            'emailAdmin' => 'required|email|unique:admins,email',
+            'emailAdmin' => 'required|email|unique:admin,emailAdmin',
             'password' => 'required|string|min:6',
+            'no_hp' => 'required|string',
         ]);
 
         // Buat objek admin
     $admin = new Admin();
     $admin->namaAdmin = $request->namaAdmin;
-    $admin->alamatAdmin = $request->alamatAdmin;
     $admin->emailAdmin = $request->emailAdmin;
     $admin->password = bcrypt($request->password);
+    $admin->no_hp = $request->no_hp;
 
     // Simpan data admin
     $admin->save();
-    
-        return redirect()->route('loginAdmin.login')->with('success', 'Register Successfully');
+
+        return redirect()->route('login')->with('success', 'Register Successfully');
     }
 
     /**
@@ -69,7 +69,7 @@ class loginAdminController extends Controller
 
             //Ambil ID admin yang berhasil login
             //$admin = Admin->id;
-            return redirect()->route('Home.index')->with('success', 'Login berhasil');
+            return redirect()->route('dashboard')->with('success', 'Login berhasil');
         }
 
         //Jika tidak cocok, kembalikan ke halaman login
@@ -82,7 +82,7 @@ class loginAdminController extends Controller
     public function logout()
     {
         Auth::logout();
-        return view('home.index');
+        return view('login.index');
     }
 
     /**

@@ -32,8 +32,7 @@ class PageController extends Controller
     }
     public function setting()
     {
-        $salon = Salon::findOrFail(1);
-
+        $salon = Salon::all();
         return view('admin.setting.index', compact('salon'));
     }
 }

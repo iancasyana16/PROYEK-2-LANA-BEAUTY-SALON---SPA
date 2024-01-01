@@ -89,17 +89,15 @@ Route::get('idiprofile', function (){
 //route login dan regiter
 // Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
 // Route::get('/login', 'loginController@loginindex')->name('loginindex');
-<<<<<<< HEAD
-Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
-Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
-Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
+// Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
+// Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
+// Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
 
 
 use App\Http\Controllers\SalonController;
-Route::get('/admin/setting', [SalonController::class, 'setting'])->name('admin.setting');
+Route::get('/admin/setting', [SalonController::class, 'index'])->name('admin.setting');
 Route::get('/admin/setting/edit/{id}', [SalonController::class, 'edit'])->name('admin.setting.edit');
 Route::put('/admin/setting/update', [SalonController::class, 'update'])->name('admin.setting.update');
-=======
 // Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
 // Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
 // Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
@@ -109,4 +107,3 @@ Route::post('/registerAdmin', [loginAdminController::class, 'registerAdminPost']
 Route::get('/loginAdmin', [loginAdminController::class, 'loginAdminIndex'])->name('loginAdminIndex');
 Route::post('/loginAdmin', [loginAdminController::class, 'loginAdminPost'])->name('loginAdminPost');
 Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');
->>>>>>> 5f5e013fd3a08da930e42b293534be2b15c115a7

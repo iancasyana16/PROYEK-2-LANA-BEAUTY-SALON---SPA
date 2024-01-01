@@ -32,12 +32,12 @@
                         @csrf
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama</label>
-                        <input type="nama" name="nameAdmin" class="form-control" id="nama" required>
+                        <input type="nama" name="namaAdmin" class="form-control" id="nama" required>
                     </div>
-                    <div class="mb-2">
+                    {{-- <div class="mb-2">
                         <label for="text" class="form-label">Alamat</label>
                         <input type="text" name="alamatAdmin" class="form-control" id="alamat" required>
-                    </div>
+                    </div> --}}
                     <div class="mb-2">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" name="emailAdmin" class="form-control" id="email" required>
@@ -46,10 +46,10 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
                     </div>
-                    {{-- <div class="mb-2">
+                    <div class="mb-2">
                         <label for="nomor telpon" class="form-label">Nomor Telepon</label>
-                        <input type="number" name="telepon" class="form-control" id="telepon" required>
-                    </div> --}}
+                        <input type="number" name="no_hp" class="form-control" id="telepon" required>
+                    </div>
                     {{-- <div class="mb-2">
                         <label for="password" class="form-label">Confirm Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
@@ -71,27 +71,27 @@
         </div>
     </div>
     <script>
-        document.querySelector("#registrationForm").addEventListener("submit", async function(event) {
-            event.preventDefault();
+    //     document.querySelector("#registrationForm").addEventListener("submit", async function(event) {
+    //         event.preventDefault();
 
-            // Fetch API untuk mengirimkan data formulir
-            const formData = new FormData(this);
-            const response = await fetch("{{ route('registerindex') }}", {
-                method: "POST",
-                body: formData,
-            });
+    //         // Fetch API untuk mengirimkan data formulir
+    //         const formData = new FormData(this);
+    //         const response = await fetch("{{ route('registerAdminIndex') }}", {
+    //             method: "POST",
+    //             body: formData,
+    //         });
 
-            // Periksa apakah registrasi berhasil
-            if (response.ok) {
-                // Arahkan ke halaman login
-                window.location.href = "{{ route('loginindex') }}";
-            } else {
-                // Tangani kegagalan registrasi (tampilkan pesan kesalahan, dll.)
-                // Untuk sementara, Anda bisa mencatat kesalahan ke konsol
-                console.error("Registrasi gagal:", response.statusText);
-            }
-        });
-    </script>
+    //         // Periksa apakah registrasi berhasil
+    //         if (response.ok) {
+    //             // Arahkan ke halaman login
+    //             window.location.href = "{{ route('loginAdminIndex') }}";
+    //         } else {
+    //             // Tangani kegagalan registrasi (tampilkan pesan kesalahan, dll.)
+    //             // Untuk sementara, Anda bisa mencatat kesalahan ke konsol
+    //             console.error("Registrasi gagal:", response.statusText);
+    //         }
+    //     });
+    // </script>
 
 </body>
 

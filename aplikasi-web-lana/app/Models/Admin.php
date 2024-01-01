@@ -19,12 +19,12 @@ class Admin extends Model
      * @var array<int, string>
      */
 
-    protected $table = '_admin';
+    protected $table = 'admin';
     protected $fillable = [
         'namaAdmin',
-        'alamatAdmin',
         'emailAdmin',
         'password',
+        'no_hp',
     ];
 
     /**
