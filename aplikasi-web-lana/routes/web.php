@@ -8,6 +8,8 @@ use App\Http\Controllers\settingController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\loginAdminController;
+
 
 // Route::get('/home', function() {
 //     return view('home.index');
@@ -85,8 +87,14 @@ Route::get('setting',function (){
     return view('/penjual.setting');
 });
 //route login dan regiter
-Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
+// Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
 // Route::get('/login', 'loginController@loginindex')->name('loginindex');
-Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
-Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
-Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
+// Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
+// Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
+// Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
+
+Route::get('/registerAdmin', [loginAdminController::class, 'registerAdminIndex'])->name('registerAdminIndex');
+Route::post('/registerAdmin', [loginAdminController::class, 'registerAdminPost'])->name('registerAdminPost');
+Route::get('/loginAdmin', [loginAdminController::class, 'loginAdminIndex'])->name('loginAdminIndex');
+Route::post('/loginAdmin', [loginAdminController::class, 'loginAdminPost'])->name('loginAdminPost');
+Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');

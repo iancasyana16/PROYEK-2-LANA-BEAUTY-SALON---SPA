@@ -32,7 +32,7 @@
                             {{ Session::get('error') }}
                         </div>
                     @endif
-                    <form action="{{ route('loginindex') }}" method="POST">
+                    <form action="{{ route('loginAdminIndex') }}" method="POST">
                         @csrf
 
                     <div class="mb-2">
@@ -50,7 +50,7 @@
                         <a>Belum Punya Akun?</a>
                     </div>
                     <div class="txt-center nt-3 d-flex justify-content-center">
-                        <a href="/register" class="nav-link text-primary">Daftar Disini</a>
+                        <a href="/registerAdmin" class="nav-link text-primary">Daftar Disini</a>
                     </div>
                 </div>
                 </form>

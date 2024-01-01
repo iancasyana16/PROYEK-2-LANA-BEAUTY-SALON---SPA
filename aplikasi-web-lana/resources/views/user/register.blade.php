@@ -51,6 +51,10 @@
                         <input type="password" name="password" class="form-control" id="password" required>
                     </div>
                     <div class="mb-2">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <input type="text" name="alamat" class="form-control" id="alamat" required>
+                    </div>
+                    <div class="mb-2">
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary" id="registerButton">REGISTER</button>
                         </div>

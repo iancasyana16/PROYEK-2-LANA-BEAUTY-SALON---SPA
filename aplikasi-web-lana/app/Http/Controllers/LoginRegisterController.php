@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginRegisterController extends Controller
 {
@@ -28,7 +29,11 @@ class LoginRegisterController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return back()->with('success', 'Register Successfully');
+        Session::put('user', $user);
+
+        // Session::put('user', $user);
+
+        return redirect()->route('login')->with('success', 'Register successfully');
     }
 
     public function loginindex()
@@ -46,6 +51,9 @@ class LoginRegisterController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if ($user && password_verify($request->password, $user->password)) {
+
+            Session(['user' => $user]);
+            
             // Login successful
             return redirect()->route('home.index')->with('success', 'Login berhasil');
         }
