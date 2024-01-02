@@ -131,6 +131,7 @@ Route::get('/invoice',function (){
 });
 
 // Booking route
+Route::post('reservations', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/reservations/{id}/edit', [BookingController::class, 'edit'])->name('booking.edit');
 Route::put('/reservations/{id}', [BookingController::class, 'update'])->name('booking.update');
 Route::delete('/reservations/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');

@@ -2,7 +2,10 @@
 
 @section('content')
 
+@if(session('data_booking'))
 <div class="p-7 rounded rounded-xl shadow">
+    {{-- <input type="hidden" name="id" value="{{ $data_booking->id }}"> --}}
+
     <div class="mb-5">
         <p class="text-2xl font-semibold">Invoice</p>
     </div>
@@ -13,7 +16,7 @@
                     <p class="text-md">No. Pesanan</p>
                 </div>
                 <div>
-                    <p class="text-xl font-bold">00012133112</p>
+                    <p class="text-xl font-bold">{{ $data_booking->id}}</p>
                 </div>
             </div>
             <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
@@ -22,7 +25,7 @@
                     <p class="text-md"></p>
                 </div>
                 <div>
-                    <p class="text-md font-bold">14 Okt 2023 07:59</p>
+                    <p class="text-md font-bold">{{ $data_booking->created_at->format('d M Y H:i') }}</p>
                 </div>
             </div>
         </div>
@@ -51,7 +54,7 @@
             </div>
         </div>
         <div class="bg-gray-100 border border-gray-200 rounded rounded-xl p-5 my-4">
-            <div class="flex justify-between">
+            {{-- <div class="flex justify-between">
                 <div>
                     <p class="text-md">Metode Pembayaran</p>
                 </div>
@@ -59,7 +62,7 @@
                     <p class="text-md font-bold">Dana</p>
                 </div>
             </div>
-            <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+            <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700"> --}}
             <div class="flex justify-between">
                 <div>
                     <p class="text-md">Total Belanja</p>
@@ -86,9 +89,9 @@
         </div>
         <div class="bg-gray-100 border border-gray-200 rounded rounded-xl p-5 my-3">
             <div class="flex text-center justify-center">
-                <p class="text-md">Atau bisa langsung scan QR<br>Code dibawah ini</p>
+                <p class="text-md">Pembayaran dilakukan di Kasir </p>
             </div>
-            <img src="{{ asset('/img/qr.png') }}" alt="" class="mx-auto my-3 rounded rounded-xl">
+            {{-- <img src="{{ asset('/img/qr.png') }}" alt="" class="mx-auto my-3 rounded rounded-xl"> --}}
             <div>
                 <p class="text-sm italic text-gray-600">*Kirim dengan nominal yang sesuai dengan Total Belanja</p>
                 <p class="text-sm italic text-gray-600">*jika dilihat pembayaran tidak sesuai dengan Total Belanja maka otomatis akan kami tolak</p>
@@ -102,5 +105,6 @@
         </div>
     </div>
 </div>
+@endif
 
 @endsection

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_layanan');
             $table->date('tanggal_booking');
             $table->time('waktu_booking');
-            $table->string('status_booking');
+            $table->enum('status_booking', ['diterima', 'ditolak'])->default('diterima');
             $table->text('informasi_tambahan')->nullable();
             $table->timestamps();
 

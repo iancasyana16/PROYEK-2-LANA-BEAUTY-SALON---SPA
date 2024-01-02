@@ -16,14 +16,14 @@
                 <h2>Update Profil Anda</h2>
             </div>
             <div class="contentForm w-full mt-8">
-                @if (session('user'))
+                @auth
                     {{-- @foreach ($user as $apdet) --}}
-                        <form action=" {{ route('settinguser.update', ['id' => session('user')->id]) }}" method="POST">
+                        <form action=" {{ route('settinguser.update', ['id' => auth()->user()->id]) }}" method="POST">
                             @csrf
                             @method('PUT')
 
                             <div class="listForm flex items-center w-full gap-3">
-                                <input type="hidden" name="id" value="{{ session('user')->id }}">
+                                <input type="hidden" name="id" value="{{ auth()->user()->id }}">
                                 <div class="itemLabels flex-shrink-0">
                                     <div class="listLabels space-y-2 flex flex-col justify-center">
                                         <div class="itemLabels">
@@ -69,7 +69,7 @@
                                                 <div class="border border-black  outline-none w-full">
                                                 </div>
                                                 <input type="text" name="email" id=""
-                                                    value="{{ session('user')->email }}" readonly
+                                                    value="{{ auth()->user()->email }}" readonly
                                                     class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                                                 <div class="border border-black outline-none w-full">
                                                 </div>
                                                 <input type="text" name="telepon" id=""
-                                                    value="{{ session('user')->telepon }}"
+                                                    value="{{ auth()->user()->telepon }}"
                                                     class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                                     {{-- @endif --}}
                                                 </div>
                                                 <input type="password" name="password" id=""
-                                                    value="{{ session('user')->password }}" readonly
+                                                    value="{{ auth()->user()->password }}" readonly
                                                     class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
@@ -106,7 +106,7 @@
                                         @endif --}}
                                                 </div>
                                                 <input type="text" name="alamat" id=""
-                                                    value="{{ session('user')->alamat }}"
+                                                    value="{{ auth()->user()->alamat }}"
                                                     class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@
                             </div>
                         </form>
                     {{-- @endforeach --}}
-                @else
+
                     {{-- Tampilkan Data Pengguna --}}
                     {{-- <div>
                         Nama: {{ $user->nama }}
@@ -127,7 +127,7 @@
                         <!-- Tampilkan data pengguna lainnya -->
                     </div>
                     <a href="{{ route('settinguser.edit', ['edit' => 1]) }}">Edit Profil</a> --}}
-                @endif
+                @endauth
 
             </div>
         </div>

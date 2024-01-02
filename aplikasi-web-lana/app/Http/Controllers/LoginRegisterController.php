@@ -46,20 +46,27 @@ class LoginRegisterController extends Controller
 
     public function loginPost(Request $request)
     {
-        $request->validate([
+        $credensial = $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
         $user = User::where('email', $request->email)->first();
+        $loginbener = Auth::attempt($credensial);
 
-        if ($user && password_verify($request->password, $user->password)) {
-            $user = Auth::user();
-            Session(['user' => $user]);
+        if ($loginbener ){
+            $request->session()->regenerate();
 
-            // Login successful
             return redirect()->route('home.index')->with('success', 'Login berhasil');
         }
+
+        // if ($user && password_verify($request->password, $user->password)) {
+        //     $user = Auth::user();
+        //     Session(['user' => $user]);
+
+        //     // Login successful
+        //     return redirect()->route('home.index')->with('success', 'Login berhasil');
+        // }
 
         return back()->with('error', 'Email atau Password Salah');
     }
@@ -75,7 +82,7 @@ class LoginRegisterController extends Controller
     {
         // $user = User::all();
         // return view('user.index', compact('user'));
-        $user = session('user');
+        $user = auth()->user();
         if ($user) {
             return view('user.index', compact('user'));
         } else {
@@ -104,7 +111,7 @@ class LoginRegisterController extends Controller
     // }
     public function edit()
     {
-        $user = session('user');
+        $user = auth()->user();
         if (!$user) {
             abort(404); // Atau tindakan lain sesuai kebutuhan Anda
         }
@@ -117,7 +124,7 @@ class LoginRegisterController extends Controller
      */
     public function update(Request $request)
     {
-        $user = session('user');
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
@@ -131,7 +138,7 @@ class LoginRegisterController extends Controller
             'alamat' => 'required',
         ]);
 
-        $user->update([
+        $userapdet = User::where('id', $user->id)->update([
             'nama' => $request->nama,
             'telepon' => $request->telepon,
             'alamat' => $request->alamat,

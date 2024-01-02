@@ -11,26 +11,26 @@
                         <div class="row g-3">
                             <div class="col-sm-12">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap"
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap"
                                     value="" required>
                                 <div class="invalid-feedback">
                                     Form harus diisi.
                                 </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            {{-- <div class="col-sm-12">
                                 <label for="nomor" class="form-label">Nomor telepon</label>
-                                <input type="number" class="form-control" id="nomor" placeholder="08XXXXXXXXXX"
+                                <input type="number" class="form-control" id="nomor" name="" placeholder="08XXXXXXXXXX"
                                     value="" required>
                                 <div class="invalid-feedback">
                                     Form harus diisi.
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-12">
                                 <label for="Hari/Tanggal" class="form-label">Hari/Tanggal/Waktu</label>
                                 <div class="input-group needs-validation">
-                                    <input type="date" name="hari" id="" class="form-control">
+                                    <input type="date" name="tanggal_booking" id="" class="form-control">
                                     <div class="invalid-feedback">
                                         Form tidak boleh kosong
                                     </div>
@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="col-12">
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" name="waktu_booking" aria-label="Default select example">
                                     <option selected>Pilih Waktu</option>
                                     <option value="1">09.00 WIB</option>
                                     <option value="2">24.00 WIB</option>
@@ -78,7 +78,7 @@
                                                                 </td>
                                                                 <td>{{ $item->nama_layanan }}</td>
                                                                 <td>{{ $item->harga_layanan }}</td>
-                                                                <td><input type="radio" name="" id="">
+                                                                <td><input type="radio" name="jenis_layanan" id="" value="{{ $item->id }}">
                                                                 </td>
                                                             </tr>
                                                         @endforeach
