@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Salon;
 
 
 class HomeController extends Controller
@@ -11,7 +12,8 @@ class HomeController extends Controller
     public function index()
     {
         // Tambahkan logika atau tampilan yang sesuai untuk halaman home di sini
-        return view('home.index');
+        $salon = Salon::all();
+        return view('home.index', compact('salon'));
     }
 
     // public function settinguser()
