@@ -10,7 +10,7 @@
     } */
     </style>
     <section class="w-full">
-        <div class="contentFormUpdateProfil text-white border border-black w-full p-6 rounded-xl bg-slate-600"
+        <div class="contentFormUpdateProfil text-white  border-black w-full p-6 rounded-xl bg-slate-600"
             id="updateProfil">
             <div class="headUpdate text-4xl font-bold text-center">
                 <h2>Update Profil Anda</h2>
@@ -61,16 +61,16 @@
                                                 </div>
                                                 <input type="text" name="nama" id=""
                                                     value="{{ old('nama', $user->nama) }}"
-                                                    class="border border-black outline-none w-full">
+                                                    class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
                                         <div class="itemInput">
                                             <div class="thInput">
-                                                <div class="border border-black outline-none w-full">
+                                                <div class="border border-black  outline-none w-full">
                                                 </div>
                                                 <input type="text" name="email" id=""
-                                                    value="{{ session('user')->email }}"
-                                                    class="border border-black outline-none w-full">
+                                                    value="{{ session('user')->email }}" readonly
+                                                    class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
                                         <div class="itemInput">
@@ -79,7 +79,7 @@
                                                 </div>
                                                 <input type="text" name="telepon" id=""
                                                     value="{{ session('user')->telepon }}"
-                                                    class="border border-black outline-none w-full">
+                                                    class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
                                         <div class="itemInput">
@@ -91,9 +91,9 @@
                                                     {{-- Belum diisi --}}
                                                     {{-- @endif --}}
                                                 </div>
-                                                <input type="text" name="password" id=""
-                                                    value="{{ session('user')->password }}"
-                                                    class="border border-black outline-none w-full">
+                                                <input type="password" name="password" id=""
+                                                    value="{{ session('user')->password }}" readonly
+                                                    class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
                                         <div class="itemInput">
@@ -107,7 +107,7 @@
                                                 </div>
                                                 <input type="text" name="alamat" id=""
                                                     value="{{ session('user')->alamat }}"
-                                                    class="border border-black outline-none w-full">
+                                                    class="border border-black text-black outline-none w-full">
                                             </div>
                                         </div>
                                     </div>

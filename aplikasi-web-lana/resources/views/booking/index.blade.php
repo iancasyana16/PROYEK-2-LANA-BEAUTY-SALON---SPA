@@ -6,7 +6,8 @@
             <div class="row g-5">
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Formulir Booking</h4>
-                    <form class="needs-validation" novalidate>
+                    <form action="{{ route('booking.store')}}" method="POST" class="needs-validation" novalidate>
+                        @csrf
                         <div class="row g-3">
                             <div class="col-sm-12">
                                 <label for="nama" class="form-label">Nama</label>

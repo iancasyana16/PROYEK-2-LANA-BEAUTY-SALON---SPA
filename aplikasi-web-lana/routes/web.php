@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\loginAdminController;
+use App\Http\Controllers\BookingController;
 
 
 // Route::get('/home', function() {
@@ -127,3 +128,8 @@ Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');
 Route::get('/invoice',function (){
     return view('/booking.invoice');
 });
+
+// Booking route
+Route::get('/reservations/{id}/edit', [BookingController::class, 'edit'])->name('booking.edit');
+Route::put('/reservations/{id}', [BookingController::class, 'update'])->name('booking.update');
+Route::delete('/reservations/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');

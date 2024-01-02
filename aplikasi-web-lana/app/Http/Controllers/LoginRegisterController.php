@@ -124,8 +124,8 @@ class LoginRegisterController extends Controller
 
         $request->validate([
             'nama' => 'required',
-            'email' => 'disabled',
-            'password' => 'disabled',
+            'email' => 'sometimes|required|email',
+            'password' => 'sometimes|required|string|min:8',
             'telepon' => 'required',
             'alamat' => 'required',
         ]);

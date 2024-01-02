@@ -10,10 +10,17 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                    {{-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <rect width="100%" height="100%" fill="#777" />
+                    </svg> --}}
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <!-- Contoh menggunakan foreignObject untuk menyematkan elemen HTML -->
+                        <foreignObject width="100%" height="100%">
+                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan2.jpg') }}" alt="Deskripsi gambar" width="100%" height="100%" />
+                        </foreignObject>
                     </svg>
+
 
                     <div class="container">
                         <div class="carousel-caption text-start">
@@ -26,9 +33,11 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="#777" />
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <!-- Contoh menggunakan foreignObject untuk menyematkan elemen HTML -->
+                        <foreignObject width="100%" height="100%">
+                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan1.jpg') }}" alt="Deskripsi gambar" width="100%" height="100%" />
+                        </foreignObject>
                     </svg>
 
                     <div class="container">
@@ -42,9 +51,11 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="#777" />
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <!-- Contoh menggunakan foreignObject untuk menyematkan elemen HTML -->
+                        <foreignObject width="100%" height="100%">
+                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan3.jpg') }}" alt="Deskripsi gambar" width="100%" height="100%" />
+                        </foreignObject>
                     </svg>
 
                     <div class="container">
