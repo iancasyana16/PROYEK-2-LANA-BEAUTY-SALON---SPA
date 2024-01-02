@@ -110,3 +110,8 @@ Route::post('/registerAdmin', [loginAdminController::class, 'registerAdminPost']
 Route::get('/loginAdmin', [loginAdminController::class, 'loginAdminIndex'])->name('loginAdminIndex');
 Route::post('/loginAdmin', [loginAdminController::class, 'loginAdminPost'])->name('loginAdminPost');
 Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');
+
+
+Route::get('/invoice',function (){
+    return view('/booking.invoice');
+});

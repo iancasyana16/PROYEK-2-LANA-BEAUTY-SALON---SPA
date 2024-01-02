@@ -96,7 +96,6 @@
     <div class="hidden" id="toko" role="tabpanel" aria-labelledby="toko-tab">
 
     @foreach ($salon as $item)
-
         <form action="{{ route('admin.setting.update') . '?id_salon=' . $item->id_salon }} " method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -149,12 +148,12 @@
 
                 <div class="mb-3">
                     <label for="visi_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi Toko</label>
-                    <textarea id="visi_salon" name="visi_salon" value="{{ $item->visi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem."></textarea>
+                    <textarea id="visi_salon" name="visi_salon" value="" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, id efficitur sem.">{{ $item->visi_salon}}</textarea>
                 </div>
 
                 <div class="mb-3">
                     <label for="misi_salon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi Toko</label>
-                    <textarea id="misi_salon" name="misi_salon" value="{{ $item->misi_salon}}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, scelerisque vel egestas non"></textarea>
+                    <textarea id="misi_salon" name="misi_salon" value="" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum vitae elit id dignissim. Donec quis erat tellus. In non dignissim mauris, scelerisque vel egestas non">{{ $item->misi_salon}}</textarea>
                 </div>
 
             </div>
@@ -183,15 +182,6 @@
                     </div>
                 </div>
 
-                {{-- <div class="mb-3">
-                    <label for="instagram" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram</label>
-                    <input type="text" name="instagram" id="instagram" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="rhycopycernter" required>
-                </div> --}}
-
-                {{-- <div class="mb-3">
-                    <label for="x" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">X</label>
-                    <input type="text" id="x" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="rhycopycernter" required>
-                </div> --}}
 
             </div>
             <div class="p-5 bg-white drop-shadow-lg rounded-xl mt-3">
