@@ -28,7 +28,8 @@ class PageController extends Controller
 
     public function booking()
     {
-        return view('booking.index');
+        $layanan = Layanan::all();
+        return view('booking.index', compact('layanan'));
     }
     public function setting()
     {

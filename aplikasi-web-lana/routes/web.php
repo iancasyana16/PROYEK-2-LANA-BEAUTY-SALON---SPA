@@ -15,6 +15,7 @@ use App\Http\Controllers\loginAdminController;
 //     return view('home.index');
 // });
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+// Route::get('/editprofil', [HomeController::class, 'settinguser'])->name('user.index');
 
 Route::get('/admin/dashboard', function () {
     return view('admin/dashboard.index');
@@ -101,6 +102,17 @@ Route::put('/admin/setting/update', [SalonController::class, 'update'])->name('a
 
 Route::get('/admin/setting/profil/edit/{id}', [loginAdminController::class, 'edit'])->name('admin.settingprofil.edit');
 Route::put('/admin/setting/profil/update', [loginAdminController::class, 'update'])->name('admin.settingprofil.update');
+
+Route::get('/editprofil', [LoginRegisterController::class, 'settinguser'])->name('user.index');
+// Route::get('/settinguser/profil/edit', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
+// Route::put('/settinguser/profil/update', [LoginRegisterController::class, 'update'])->name('settinguser.update');
+Route::get('/settinguser/profil/edit/{id}', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
+Route::put('/settinguser/profil/update/{id}', [LoginRegisterController::class, 'update'])->name('settinguser.update');
+
+// Route::get('/settinguser/profil/edit/{id}', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
+// Route::put('/settinguser/profil/update', [LoginRegisterController::class, 'update'])->name('settinguser.update');
+
+
 // Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
 // Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
 // Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
@@ -112,3 +124,7 @@ Route::post('/loginAdmin', [loginAdminController::class, 'loginAdminPost'])->nam
 Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');
 
 
+
+Route::get('/invoice',function (){
+    return view('/booking.invoice');
+});
