@@ -27,8 +27,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('/user.register');
 });
-Route::get('/editprofil', function () {
-    return view('/user.index');
+Route::get('/userprofil', function () {
+    return view('/user.profile');
 });
 Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
 // Route::get('/login', 'loginController@loginindex')->name('loginindex');
@@ -123,6 +123,7 @@ Route::post('/registerAdmin', [loginAdminController::class, 'registerAdminPost']
 Route::get('/loginAdmin', [loginAdminController::class, 'loginAdminIndex'])->name('loginAdminIndex');
 Route::post('/loginAdmin', [loginAdminController::class, 'loginAdminPost'])->name('loginAdminPost');
 Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');
+
 
 
 Route::get('/invoice',function (){
