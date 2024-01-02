@@ -1,4 +1,5 @@
 <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-transparent m-0">
+    {{-- @foreach ($collection as $item) --}}
     <div class="container">
         <a class="d-flex fs-5" href="/"><img src="{{ asset('asset/img/logo lana.png') }}" alt="" height="75"
                 width="120"></a>
@@ -7,6 +8,7 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        {{-- @endforeach --}}
 
         <div class="d-flex fw-bold p-3 mb-2 fs-5">
             <div class="collapse navbar-collapse " id="navbarSupportedContent">

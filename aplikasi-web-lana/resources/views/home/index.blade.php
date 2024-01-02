@@ -15,10 +15,12 @@
                         aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <rect width="100%" height="100%" fill="#777" />
                     </svg> --}}
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <!-- Contoh menggunakan foreignObject untuk menyematkan elemen HTML -->
                         <foreignObject width="100%" height="100%">
-                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan4.jpg') }}" alt="Deskripsi gambar" width="100%" height="100%" />
+                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan2.jpg') }}"
+                                alt="Deskripsi gambar" width="100%" height="100%" />
                         </foreignObject>
                     </svg>
 
@@ -34,10 +36,12 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <!-- Contoh menggunakan foreignObject untuk menyematkan elemen HTML -->
                         <foreignObject width="100%" height="100%">
-                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan1.jpg') }}" alt="Deskripsi gambar" width="100%" height="100%" />
+                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan1.jpg') }}"
+                                alt="Deskripsi gambar" width="100%" height="100%" />
                         </foreignObject>
                     </svg>
 
@@ -52,10 +56,12 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <!-- Contoh menggunakan foreignObject untuk menyematkan elemen HTML -->
                         <foreignObject width="100%" height="100%">
-                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan3.jpg') }}" alt="Deskripsi gambar" width="100%" height="100%" />
+                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan3.jpg') }}"
+                                alt="Deskripsi gambar" width="100%" height="100%" />
                         </foreignObject>
                     </svg>
 
@@ -79,26 +85,22 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <div class="container-fluid">
-            <hr class="featurette-divider">
-            <div class="row featurette mb-5 bg-secondary p-4">
-                <div class="col-md-7 order-md-2 text-white">
-                    <h2 class="featurette-heading mb-5">About Us</h2>
-                    <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia voluptatum tenetur
-                        itaque fugit
-                        modi ut optio amet eius impedit repellat sit reiciendis eaque quaerat illo, dolores labore id
-                        quos molestias
-                        nam qui. Animi esse nobis facilis veritatis, ullam quae, consectetur debitis dicta, earum modi
-                        itaque? Id
-                        accusamus pariatur rerum nostrum.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                         width="500" height="500"
-                         src="{{ asset('asset/img/foto about2.png') }}"
-                         alt="Placeholder: 500x500">
+        @foreach ($salon as $item)
+            <div class="container-fluid">
+                <hr class="featurette-divider">
+                <div class="row featurette mb-5 bg-secondary p-4">
+                    <div class="col-md-7 order-md-2 text-white">
+                        <h2 class="featurette-heading mb-5">About Us</h2>
+                        <p class="lead">{{ $item->visi_salon }}</p>
+                        <p class="lead">{{ $item->misi_salon }}</p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                            width="500" height="500" src="{{ asset('asset/img/foto about2.png') }}"
+                            alt="Placeholder: 500x500">
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 @endsection

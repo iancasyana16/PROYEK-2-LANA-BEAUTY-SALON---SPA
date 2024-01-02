@@ -11,7 +11,8 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('user.login');
+        $salon = Salon::all();
+        return view('user.login', compact('salon'));
     }
 
     public function layanan()
