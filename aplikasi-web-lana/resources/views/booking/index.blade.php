@@ -58,22 +58,34 @@
                                     <div class="modal-dialog modal-dialog-scrollable modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header text-dark">
-                                                <form class="d-flex" role="search">
-                                                    <input class="form-control me-2 rounded" type="search"
-                                                        placeholder="Search" aria-label="Search">
-                                                        
-                                                    <button class="btn btn-primary" type="submit">Search</button>
-                                                </form>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body text-dark">
-
+                                            <div class="modal-body text-dark" id="example2">
+                                                <table class="table table-bordered table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Foto Layanan</th>
+                                                            <th>Nama Layanan</th>
+                                                            <th>Harga Layanan</th>
+                                                            <th>Pilih</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($layanan as $item)
+                                                            <tr>
+                                                                <td>{{ $item->foto_layanan }}</td>
+                                                                <td>{{ $item->nama_layanan }}</td>
+                                                                <td>{{ $item->harga_layanan }}</td>
+                                                                <td><input type="radio" name="" id="">
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Understood</button>
+                                                <button type="button" class="btn btn-primary">Lanjutkan</button>
                                             </div>
                                         </div>
                                     </div>
