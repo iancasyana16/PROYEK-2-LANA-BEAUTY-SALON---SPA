@@ -72,7 +72,9 @@
                                                     <tbody>
                                                         @foreach ($layanan as $item)
                                                             <tr>
-                                                                <td>{{ $item->foto_layanan }}</td>
+                                                                <td>
+                                                                    <img src="{{ asset('storage/images/' . $item->foto_layanan) }}" width="25%" alt="Foto Layanan">
+                                                                </td>
                                                                 <td>{{ $item->nama_layanan }}</td>
                                                                 <td>{{ $item->harga_layanan }}</td>
                                                                 <td><input type="radio" name="" id="">

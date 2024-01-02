@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Contracts\Auth\Guard;
+
 
 class LoginRegisterController extends Controller
 {
@@ -53,7 +55,7 @@ class LoginRegisterController extends Controller
         if ($user && password_verify($request->password, $user->password)) {
 
             Session(['user' => $user]);
-            
+
             // Login successful
             return redirect()->route('home.index')->with('success', 'Login berhasil');
         }
@@ -66,5 +68,74 @@ class LoginRegisterController extends Controller
         $request->session()->forget('user');
 
         return redirect('/login')->with('success', 'Logout berhasil');
+    }
+
+    public function settinguser()
+    {
+        // $user = User::all();
+        // return view('user.index', compact('user'));
+        $user = session('user');
+        if ($user) {
+            return view('user.index', compact('user'));
+        } else {
+            // Handle the case when the user is not authenticated
+            return redirect('/login');
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    // public function edit(string $id)
+    // {
+    //     //
+    //     // $user = User::find($id);
+    //     // return view('user.index', compact('user'));
+    //     $user = User::find($id);
+
+    // // Pastikan user ditemukan sebelum melanjutkan
+    // if (!$user) {
+    //     abort(404); // Atau tindakan lain sesuai kebutuhan Anda
+    // }
+
+
+    // return view('user.index', compact('user'));
+    // }
+    public function edit()
+    {
+        $user = session('user');
+        if (!$user) {
+            abort(404); // Atau tindakan lain sesuai kebutuhan Anda
+        }
+
+        return view('user.index', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request)
+    {
+        $user = session('user');
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'disabled',
+            'password' => 'disabled',
+            'telepon' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $user->update([
+            'nama' => $request->nama,
+            'telepon' => $request->telepon,
+            'alamat' => $request->alamat,
+        ]);
+
+        return redirect()->back()->with('success', 'Data berhasil diperbarui.');
     }
 }
