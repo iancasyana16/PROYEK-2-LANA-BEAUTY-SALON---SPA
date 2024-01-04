@@ -30,13 +30,14 @@ class LoginRegisterController extends Controller
         $user->email = $request->email;
         $user->telepon = $request->telepon;
         $user->password = bcrypt($request->password);
+        $user->alamat = $request->alamat;
         $user->save();
 
         Session::put('user', $user);
 
         // Session::put('user', $user);
 
-        return redirect()->route('login')->with('success', 'Register successfully');
+        return redirect()->route('/login')->with('success', 'Register successfully');
     }
 
     public function loginindex()

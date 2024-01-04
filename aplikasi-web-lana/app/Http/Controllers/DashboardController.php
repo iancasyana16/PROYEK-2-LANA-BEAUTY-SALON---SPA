@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Layanan;
 use App\Models\Salon;
 use App\Models\Admin;
+use App\Models\Booking;
+use App\Models\User;
 
 
 class DashboardController extends Controller
@@ -23,17 +25,25 @@ class DashboardController extends Controller
 
     public function dashboardUser()
     {
-        return view('admin.user.index');
+        $booking = Booking::all();
+        $user = User::all();
+        $admin = Admin::all();
+        // return view('admin.user.index');
+        return view('admin.user.index', compact('booking', 'user', 'admin'));
     }
 
     public function dashboardBooking()
     {
-        return view('admin.booking.index');
+        $booking = Booking::with('user')->get();
+        // $user = User::all();
+        // $admin = Admin::all();
+        return view('admin.booking.index', compact('booking'));
     }
 
     // public function dashboardGallery()
     // {
-    //     return view('admin.layanan.index');
+    //     $sa
+    //     return view('admin.layanan.index', compact('galeri'));
     // }
 
     public function dashboardSetting()

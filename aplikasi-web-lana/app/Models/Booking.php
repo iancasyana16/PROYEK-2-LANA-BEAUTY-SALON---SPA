@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
+    protected $table = 'bookings';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'id_user',
@@ -29,4 +31,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Layanan::class, 'id_layanan');
     }
+
+    // public function items()
+    // {
+    //     return $this->hasMany(Item::class);
+    // }
 }

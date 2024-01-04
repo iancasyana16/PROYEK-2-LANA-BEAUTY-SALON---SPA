@@ -2,7 +2,7 @@
 
 @section('content')
 
-@if(session('data_booking'))
+{{-- @if(session('booking')) --}}
 <div class="p-7 rounded rounded-xl shadow">
     {{-- <input type="hidden" name="id" value="{{ $data_booking->id }}"> --}}
 
@@ -16,7 +16,7 @@
                     <p class="text-md">No. Pesanan</p>
                 </div>
                 <div>
-                    <p class="text-xl font-bold">{{ $data_booking->id}}</p>
+                    <p class="text-xl font-bold">{{ $booking->id}}</p>
                 </div>
             </div>
             <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
@@ -25,20 +25,33 @@
                     <p class="text-md"></p>
                 </div>
                 <div>
-                    <p class="text-md font-bold">{{ $data_booking->created_at->format('d M Y H:i') }}</p>
+                    <p class="text-md font-bold">{{ $booking->tanggal_booking }}</p>
                 </div>
             </div>
         </div>
         <div class="pl-6 bg-gray-100 border border-gray-200 rounded rounded-xl p-5 my-4">
             <p class="text-sm mb-5">Produk atau Jasa yang dipesan</p>
-            <div class="flex items-center justify-between mb-3">
-                <img class="w-20 rounded-lg bg-gray-300" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="product image" />
-                <div class="px-4 mr-auto">
-                    <p class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">Buku Catatan Eksklusif Harmony Inspirasi</p>
-                    <p class="text-sm tracking-tight text-gray-900 dark:text-white">1x Rp15.000</p>
+            {{-- @foreach ($booking->id as $item)
+                <div class="flex items-center justify-between mb-3">
+                    <img class="w-20 rounded-lg bg-gray-300" src="{{ asset('storage/images/' . $item->layanan->foto_layanan) }}" alt="product image" />
+                    <div class="px-4 mr-auto">
+                        <p class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">{{ $item->layanan->nama_layanan }}</p>
+                        <p class="text-sm tracking-tight text-gray-900 dark:text-white">{{ $item->jumlah }}x Rp{{ $item->layanan->harga_layanan }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="flex items-center justify-between mb-3">
+            @endforeach --}}
+            @if ($booking)
+                <div class="flex items-center justify-between mb-3">
+                    <img class="w-20 rounded-lg bg-gray-300" src="{{ asset('storage/images/' . $booking->layanan->foto_layanan) }}" alt="product image" />
+                    <p class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">{{ $booking->layanan->nama_layanan }}</p>
+                    <p class="text-sm tracking-tight text-gray-900 dark:text-white">{{ $booking->jumlah }}x Rp{{ $booking->layanan->harga_layanan }}</p>
+                </div>
+                @php
+                    $total = $booking->jumlah * $booking->layanan->harga_layanan;
+                @endphp
+            @endif
+
+            {{-- <div class="flex items-center justify-between mb-3">
                 <img class="w-20 rounded-lg bg-gray-300" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="product image" />
                 <div class="px-4 mr-auto">
                     <p class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">Pulpen Koleksi Elegan Seri Sentuhan Emas</p>
@@ -51,8 +64,9 @@
                     <p class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">Buku Sketch Artistik Dengan Kertas Kualitas Tinggi</p>
                     <p class="text-sm tracking-tight text-gray-900 dark:text-white">1x Rp20.000</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
+
         <div class="bg-gray-100 border border-gray-200 rounded rounded-xl p-5 my-4">
             {{-- <div class="flex justify-between">
                 <div>
@@ -68,7 +82,7 @@
                     <p class="text-md">Total Belanja</p>
                 </div>
                 <div>
-                    <p class="text-md font-bold">Rp80.000</p>
+                    <p class="text-md font-bold">Rp{{ $total }}</p>
                 </div>
             </div>
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
@@ -84,7 +98,7 @@
         <div class="inline-flex items-center justify-center w-full">
             <hr class="w-64 h-1 my-4 bg-gray-200 border-0 rounded dark:bg-gray-700">
             <div class="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900">
-                <p>Status</p>
+                <p>{{ $booking->status }}</p>
             </div>
         </div>
         <div class="bg-gray-100 border border-gray-200 rounded rounded-xl p-5 my-3">
@@ -105,6 +119,6 @@
         </div>
     </div>
 </div>
-@endif
+{{-- @endif --}}
 
 @endsection

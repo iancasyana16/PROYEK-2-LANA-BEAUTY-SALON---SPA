@@ -42,7 +42,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach ($booking as $item)
+                                    <tr>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->user->nama}}</td>
+                                        <td>{{$item->user->telepon}}</td>
+                                        <td>{{$item->tanggal_booking}}</td>
+                                        <td>
+                                            {{-- Conditionally show the appropriate button based on the current status --}}
+                                            @if ($item->status == 'diterima')
+                                                <button class="btn btn-success" disabled>Approved</button>
+                                                {{-- <a class="btn btn-danger" href="{{ route('booking.updateStatus', ['id' => $item->id, 'newStatus' => 'ditolak']) }}">Reject</a> --}}
+                                            @elseif ($item->status == 'ditolak')
+                                                {{-- <a class="btn btn-success" href="{{ route('booking.updateStatus', ['id' => $item->id, 'newStatus' => 'diterima']) }}">Approved</a> --}}
+                                                <button class="btn btn-danger" disabled>Reject</button>
+                                            @else
+                                                <a class="btn btn-success" href="{{ route('booking.updateStatus', ['id' => $item->id, 'newStatus' => 'diterima']) }}">Approved</a>
+                                                <a class="btn btn-danger" href="{{ route('booking.updateStatus', ['id' => $item->id, 'newStatus' => 'ditolak']) }}">Reject</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

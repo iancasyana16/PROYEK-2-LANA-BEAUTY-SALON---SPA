@@ -19,7 +19,7 @@
                         aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <!-- Contoh menggunakan foreignObject untuk menyematkan elemen HTML -->
                         <foreignObject width="100%" height="100%">
-                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan2.jpg') }}"
+                            <img xmlns="http://www.w3.org/1999/xhtml" src="{{ asset('asset/img/iklan4.jpg') }}"
                                 alt="Deskripsi gambar" width="100%" height="100%" />
                         </foreignObject>
                     </svg>

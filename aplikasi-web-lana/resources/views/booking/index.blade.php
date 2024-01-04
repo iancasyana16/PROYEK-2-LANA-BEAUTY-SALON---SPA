@@ -40,8 +40,8 @@
                             <div class="col-12">
                                 <select class="form-select" name="waktu_booking" aria-label="Default select example">
                                     <option selected>Pilih Waktu</option>
-                                    <option value="1">09.00 WIB</option>
-                                    <option value="2">24.00 WIB</option>
+                                    <option value="09:00:00">09.00 WIB</option>
+                                    <option value="24:00:00">24.00 WIB</option>
                                 </select>
                             </div>
 
@@ -78,7 +78,7 @@
                                                                 </td>
                                                                 <td>{{ $item->nama_layanan }}</td>
                                                                 <td>{{ $item->harga_layanan }}</td>
-                                                                <td><input type="radio" name="jenis_layanan" id="" value="{{ $item->id }}">
+                                                                <td><input type="checkbox" name="jenis_layanan" id="" value="{{ $item->id }}">
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -87,8 +87,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Lanjutkan</button>
+                                                    data-bs-dismiss="modal">Lanjutkan</button>
+                                                {{-- <button type="button" class="btn btn-primary">Lanjutkan</button> --}}
                                             </div>
                                         </div>
                                     </div>

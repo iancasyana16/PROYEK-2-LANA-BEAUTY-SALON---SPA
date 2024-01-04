@@ -126,12 +126,19 @@ Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/invoice',function (){
-    return view('/booking.invoice');
-});
+// Route::get('/invoice',function (){
+//     return view('/booking.invoice');
+// });
 
 // Booking route
+// Route::post('reservations', [BookingController::class, 'index'])->name('booking.index');
 Route::post('reservations', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/reservations/{id}/edit', [BookingController::class, 'edit'])->name('booking.edit');
 Route::put('/reservations/{id}', [BookingController::class, 'update'])->name('booking.update');
 Route::delete('/reservations/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
+// routes/web.php
+Route::get('/invoice/{id}', [BookingController::class, 'showInvoice'])->name('invoice.show');
+// Route::get('/invoice/{id}', [BookingController::class, 'showInvoice'])->name('invoice.show');
+
+Route::get('/booking/{id}/update-status/{newStatus}', [BookingController::class, 'updateStatus'])
+    ->name('booking.updateStatus');

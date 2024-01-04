@@ -10,9 +10,11 @@ use App\Models\Salon;
 class PageController extends Controller
 {
     public function home()
+    // public function index()
     {
+        // Tambahkan logika atau tampilan yang sesuai untuk halaman home di sini
         $salon = Salon::all();
-        return view('user.login', compact('salon'));
+        return view('home.index', compact('salon'));
     }
 
     public function layanan()
@@ -24,7 +26,8 @@ class PageController extends Controller
     public function gallery()
     {
         $sertif = Sertifikat::all();
-        return view('gal.coba', compact('sertif'));
+        $salon = Salon::all();
+        return view('gal.coba', compact('sertif', 'salon'));
     }
 
     public function booking()
