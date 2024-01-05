@@ -1,4 +1,5 @@
 @extends('layout.mainadmin')
+@section('title', 'Dashbboard Layanan')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -12,7 +13,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
                             <li class="breadcrumb-item active">Layanan</li>
                         </ol>
                     </div>
@@ -25,15 +26,19 @@
         <section class="content">
 
             <div class="card">
+
                 <div class="card-header">
+
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-md-12">
+
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary fw-bold float-start" data-bs-toggle="modal"
                                 data-bs-target="#tambah">
                                 <i class="fa-solid fa-plus" style="color: #ffffff; p-2"></i> Data Layanan Baru
                             </button>
+
                             <!-- Modal tambah data -->
                             <div class="modal fade" id="tambah" data-bs-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -89,13 +94,18 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
                     <!-- /.row -->
+
                 </div>
+
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
+
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -111,14 +121,15 @@
                                             <td class="text-center" style="width: 20px;">
                                                 {{ $index += 1 }}
                                             </td>
-                                            <td class="" style="width: 250px;">
+                                            <td style="width: 250px;">
                                                 {{ $row->nama_layanan }}
                                             </td>
                                             <td style="width: 100px;">
-                                                <span class="">Rp. {{ $row->harga_layanan }}
+                                                <span>
+                                                    Rp. {{ $row->harga_layanan }}
                                                 </span>
                                             </td>
-                                            <td style="width: 80px;" class="">
+                                            <td style="width: 80px;">
 
                                                 <!-- Button trigger modal edit -->
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
@@ -155,8 +166,6 @@
                                                                     action="{{ route('admin.layanan.update', ['id' => $row->id]) }}"
                                                                     method="POST" enctype="multipart/form-data">
                                                                     @csrf
-                                                                    <!-- Input Tersembunyi untuk ID Layanan -->
-                                                                    {{-- <input type="hidden" name="id" value="{{ $row->id }}"> --}}
                                                                     <div class="row mb-3">
                                                                         <label for="nama_layanan"
                                                                             class="col-sm-3 col-form-label">Nama
@@ -293,21 +302,13 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </section>
         <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
-    <script>
-        $(document).ready(function() {
-    // Inisialisasi Summernote untuk setiap elemen textarea dengan ID unik
-    @foreach ($layanan as $row)
-        $('#summernoteEdit').summernote({
-            // konfigurasi Summernote jika diperlukan
-        });
-    @endforeach
-});
 
-    </script>
 @endsection

@@ -10,43 +10,35 @@ use App\Http\Controllers\galeriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\loginAdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\UserProfilController;
+use App\Models\User;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\SalonController;
 
-
-// Route::get('/home', function() {
-//     return view('home.index');
-// });
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-// Route::get('/editprofil', [HomeController::class, 'settinguser'])->name('user.index');
 
-Route::get('/admin/dashboard', function () {
-    return view('admin/dashboard.index');
-});
 Route::get('/login', function () {
     return view('/user.login');
 });
 Route::get('/register', function () {
     return view('/user.register');
 });
-Route::get('/userprofil', function () {
-    return view('/user.profile');
-});
+
+Route::get('userprofil', [UserProfilController::class, 'home']);
+Route::get('userprofil/setting', [UserProfilController::class, 'setting']);
+Route::get('userprofil/logout', [UserProfilController::class, 'logout']);
+
 Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
-// Route::get('/login', 'loginController@loginindex')->name('loginindex');
 Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
 Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
 Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
 Route::get('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
-
-Route::get('/dashboard', function () {
-    return view('/admin/dashboard.index');
-})->name('dashboard');
 
 Route::get('/admin/layanan', [LayananController::class, 'index'])->name('layanan');
 // Route::get('/admin/layanan/create', [LayananController::class, 'create'])->name('create');
 // Route::get('/admin/layanan/store', [LayananController::class, 'store'])->name('read');
 // Route::get('/admin/layanan/edit', [LayananController::class, 'edit'])->name('update');
 // Route::get('/admin/layanan/delete', [LayananController::class, 'destroy'])->name('delete');
-use App\Http\Controllers\PageController;
 
 //route controller page user
 Route::get('/', [PageController::class, 'home'])->name('homepage');
@@ -77,26 +69,14 @@ Route::get('/galeri/{kategori}', [galeriController::class, 'showByCategory'])->n
 Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
 Route::delete('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
 
-Route::get('/profil', function (){
+Route::get('/profil', function () {
     return view('penjual.setting');
 });
 
-Route::get('idiprofile', function (){
+Route::get('idiprofile', function () {
     return view('profile.isiprofile');
 });
 
-// Route::get('setting',function (){
-//     return view('/penjual.setting');
-// });
-//route login dan regiter
-// Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
-// Route::get('/login', 'loginController@loginindex')->name('loginindex');
-// Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
-// Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
-// Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
-
-
-use App\Http\Controllers\SalonController;
 Route::get('/admin/setting', [SalonController::class, 'index'])->name('admin.setting');
 Route::get('/admin/setting/edit/{id}', [SalonController::class, 'edit'])->name('admin.setting.edit');
 Route::put('/admin/setting/update', [SalonController::class, 'update'])->name('admin.setting.update');
@@ -110,25 +90,11 @@ Route::get('/editprofil', [LoginRegisterController::class, 'settinguser'])->name
 Route::get('/settinguser/profil/edit/{id}', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
 Route::put('/settinguser/profil/update/{id}', [LoginRegisterController::class, 'update'])->name('settinguser.update');
 
-// Route::get('/settinguser/profil/edit/{id}', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
-// Route::put('/settinguser/profil/update', [LoginRegisterController::class, 'update'])->name('settinguser.update');
-
-
-// Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
-// Route::get('/register', [loginRegisterController::class, 'registerindex'])->name('registerindex');
-// Route::post('/register', [loginRegisterController::class, 'registerPost'])->name('registerPost');
-
 Route::get('/registerAdmin', [loginAdminController::class, 'registerAdminIndex'])->name('registerAdminIndex');
 Route::post('/registerAdmin', [loginAdminController::class, 'registerAdminPost'])->name('registerAdminPost');
 Route::get('/loginAdmin', [loginAdminController::class, 'loginAdminIndex'])->name('loginAdminIndex');
 Route::post('/loginAdmin', [loginAdminController::class, 'loginAdminPost'])->name('loginAdminPost');
 Route::get('/logout', [loginAdminController::class, 'logout'])->name('logout');
-
-
-
-// Route::get('/invoice',function (){
-//     return view('/booking.invoice');
-// });
 
 // Booking route
 // Route::post('reservations', [BookingController::class, 'index'])->name('booking.index');

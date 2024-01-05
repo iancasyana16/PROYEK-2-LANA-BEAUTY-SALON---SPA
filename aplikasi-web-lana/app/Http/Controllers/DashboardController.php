@@ -7,6 +7,7 @@ use App\Models\Layanan;
 use App\Models\Salon;
 use App\Models\Admin;
 use App\Models\Booking;
+use App\Models\Sertifikat;
 use App\Models\User;
 
 
@@ -14,7 +15,11 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard.index');
+        $layanan = Layanan::all();
+        $user = User::all();
+        $booking = Booking::all();
+        $gallery = Sertifikat::all();
+        return view('admin.dashboard.index', compact('layanan', 'user', 'booking', 'gallery'));
     }
 
     public function dashboardLayanan()
@@ -51,6 +56,5 @@ class DashboardController extends Controller
         $salon = Salon::all();
         $admin = Admin::all();
         return view('admin.setting.index', compact('salon', 'admin'));
-
     }
 }

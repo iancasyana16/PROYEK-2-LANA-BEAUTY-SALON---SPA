@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <h3 class="text-center text-white mt-3" style="min-width: 100px; overflow: hidden;">
         <i class="fa-solid fa-gauge-high p-1 fs-3" style="color: #ffffff;"></i>
-        <span class="dashboard-text">Dashboard</span>
+        <span class="dashboard-text h3">Dashboard</span>
     </h3>
     <hr class="text-white">
 

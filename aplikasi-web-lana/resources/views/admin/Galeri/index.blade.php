@@ -1,4 +1,5 @@
 @extends('layout.mainadmin')
+@section('title', 'Dashboard Gallery')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -12,7 +13,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
                             <li class="breadcrumb-item active">Gallery</li>
                         </ol>
                     </div>
@@ -24,7 +25,9 @@
         <!-- Main content -->
         <section class="content">
             <div class="card">
+
                 <div class="card-header">
+
                     <!-- Button untuk membuka modal -->
                     <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal"
                         data-bs-target="#modalTambah">
@@ -91,14 +94,17 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+
                 <div class="card-body">
+
                     <!-- Table untuk menampilkan data -->
                     <table id="example2" class="table table-bordered table-hover">
                         <!-- Table header -->
                         <thead>
                             <tr>
-                                <th scope="col" class="text-center">No</th>
+                                <th scope="col">No</th>
                                 <th scope="col">Nama Kegiatan</th>
                                 <th scope="col">Kategori</th>
                                 <th scope="col">Caption Kegiatan</th>
@@ -113,26 +119,22 @@
                                     <td>{{ $row->judul_kegiatan }}</td>
                                     <td>{{ $row->kategori }} </td>
                                     <td>{{ $row->caption_kegiatan }} </td>
-                                    {{-- <td class="justify-items-center">
-                                        <div class="container-center" style="width: 350px; height: auto;">
-                                            <div class="aspect-ratio" style="width: 100%;">
-                                                <img class="img-thumbnail aspect-ratio-item"
-                                                    src="{{ asset('storage/images/' . $row->foto) }}" alt="Gambar 1">
-                                            </div>
-                                        </div>
-                                    </td> --}}
                                     <td>
-                                        <a href="#" type="button" class="btn btn-warning" data-bs-toggle="modal"
+
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                             data-bs-target="#edit-{{ $row->id_sertif }}">
-                                            <i class="fas fa-pen-to-square" style="color: #ffffff;"></i></a>
-                                        <a href="#" type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            <i class="fas fa-pen-to-square" style="color: #ffffff;"></i></button>
+
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#hapus-{{ $row->id_sertif }}"><i class="fas fa-trash"
-                                                style="color: #ffffff;"></i></a>
+                                                style="color: #ffffff;"></i></button>
+
                                         {{-- button show  --}}
                                         <button type="button" class="btn btn-info" data-bs-toggle="modal"
                                             data-bs-target="#show{{ $row->id_sertif }}">
                                             <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                                         </button>
+
                                     </td>
                                 </tr>
 
@@ -284,14 +286,15 @@
                             @endforeach
                         </tbody>
                     </table>
+
                 </div>
+
             </div>
+
         </section>
         <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
 
-    <body>
-
-        </html>
-    @endsection
+@endsection

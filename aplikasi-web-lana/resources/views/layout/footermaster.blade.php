@@ -8,7 +8,7 @@
                         {{ $item->alamat_salon }}
                     </p>
                     <p>
-                        <a href="https://wa.me/c/6287778019888" class="text-white text-decoration-none"><img
+                        <a href="https://wa.me/c/6287778019888" class="text-white text-decoration-none" target="blank"><img
                                 src="{{ asset('asset/img/logo telepon.png') }}" alt=""
                                 style="width:30px; height:30px;">087778019888</a>
                     </p>
@@ -22,15 +22,15 @@
             <div class="col-md-4">
                 <div class="row text-start my-2">
                     <h3 class="mb-2">Asisten Customer</h3>
-                    <p>Booking Sekarang</p>
-                    <p>My Account</p>
+                    <p><a href="{{ url('/booking') }}" class="text-white text-decoration-none">Booking Sekarang</a></p>
+                    <p><a href="{{ url('/userprofil') }}" class="text-white text-decoration-none">My Account</a></p>
                 </div>
                 <div class="row text-start my-2">
                     <h3 class="mb-2">Sosial Media</h3>
-                    <p class=""><a href="{{ $item->instagram }}" class="text-white text-decoration-none"><img
-                                src="{{ asset('asset/img/logo instagram hitam.png') }}" alt=""
+                    <p class=""><a href="{{ $item->instagram }}" class="text-white text-decoration-none"
+                            target="blank"><img src="{{ asset('asset/img/logo instagram hitam.png') }}" alt=""
                                 style="width:30px; height:30px;">Instagram</p></a>
-                    <p><a href="{{ $item->facebook }}" class="text-white text-decoration-none"><img
+                    <p><a href="{{ $item->facebook }}" class="text-white text-decoration-none" target="blank"><img
                                 src="{{ asset('asset/img/logo facebook.png') }}" alt=""
                                 style="width:30px; height:30px;">Facebook</p></a>
                 </div>

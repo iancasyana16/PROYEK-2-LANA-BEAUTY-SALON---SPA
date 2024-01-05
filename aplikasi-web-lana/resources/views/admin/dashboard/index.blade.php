@@ -19,6 +19,7 @@
                             </div>
                             <!-- /.card-tools -->
                         </div>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             Dalam setiap hari kerja, lihatlah setiap tugas sebagai kesempatan untuk tumbuh dan berkembang.
@@ -37,66 +38,70 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3
+                ">
                     <!-- small card -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ count($booking) }}</h3>
 
                             <p>Orders</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="{{ url('/dashboard/booking') }}" class="small-box-footer">
                             Selengkapnya <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3
+                ">
                     <!-- small card -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ count($user) }}</h3>
 
                             <p>Users</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-user"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="{{ url('/dashboard/user') }}" class="small-box-footer">
                             Selengkapnya <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3
+                ">
                     <!-- small card -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ count($layanan) }}</h3>
 
                             <p>Services</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="{{ url('/dashboard/layanan') }}" class="small-box-footer">
                             Selengkapnya <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3
+                ">
                     <!-- small card -->
                     <div class="small-box" style="background-color: #f012be">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ count($gallery) }}</h3>
 
                             <p>Galeri</p>
                         </div>
                         <div class="icon">
                             <i class="fa-solid fa-certificate"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="{{ url('/dashboard/gallery') }}" class="small-box-footer">
                             Selengkapnya <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>

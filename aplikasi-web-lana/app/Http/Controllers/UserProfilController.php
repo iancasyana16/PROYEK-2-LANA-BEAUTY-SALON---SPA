@@ -7,10 +7,21 @@ use Illuminate\Http\Request;
 
 class UserProfilController extends Controller
 {
-    public function index()
+    // public function index()
+    // {
+    //     $salon = User::all();
+    //     return view('admin.user.index', compact('UserProfil'));
+    // }
+
+    public function home()
     {
-        $salon = User::all();
-        return view('admin.user.index', compact('UserProfil'));
+        $user = User::all();
+        return view('user.home', compact('user'));
+    }
+    public function setting()
+    {
+        $user = User::all();
+        return view('user.profile', compact('user'));
     }
 
     /**
@@ -53,7 +64,7 @@ class UserProfilController extends Controller
     public function update(Request $request)
     {
         //
-        $request->validate ([
+        $request->validate([
             'nama_lengkap' => 'required',
             'email' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nomor_telepon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -62,7 +73,7 @@ class UserProfilController extends Controller
             'alamat' => 'required',
 
         ]);
-        $id_user=$request->id_user;
+        $id_user = $request->id_user;
         // echo 'validate success <br>';
         // $filefoto = null;
         // $filelogo = null;
