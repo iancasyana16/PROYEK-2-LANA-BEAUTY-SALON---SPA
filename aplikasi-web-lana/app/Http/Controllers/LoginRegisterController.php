@@ -117,7 +117,7 @@ class LoginRegisterController extends Controller
             abort(404); // Atau tindakan lain sesuai kebutuhan Anda
         }
 
-        return view('user.index', compact('user'));
+        return view('user.profile', compact('user'));
     }
 
     /**

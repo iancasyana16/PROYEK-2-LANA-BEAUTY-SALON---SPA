@@ -5,7 +5,9 @@
 {{-- @if(session('booking')) --}}
 <div class="p-7 rounded rounded-xl shadow">
     {{-- <input type="hidden" name="id" value="{{ $data_booking->id }}"> --}}
-
+    @php
+        $totalHarga = 0
+    @endphp
     <div class="mb-5">
         <p class="text-2xl font-semibold">Invoice</p>
     </div>
@@ -41,14 +43,27 @@
                 </div>
             @endforeach --}}
             @if ($booking)
+                @foreach ($jenisLayanan as $layanan)
+                    <div class="flex items-center justify-between mb-3">
+                        <img class="w-20 rounded-lg bg-gray-300" src="{{ asset('storage/images/' . $layanan->foto_layanan) }}" alt="product image" />
+                        <p class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">{{ $layanan->nama_layanan }}</p>
+                        {{-- <p class="text-sm tracking-tight text-gray-900 dark:text-white">{{ $jumlah }}x Rp{{ $layanan->harga_layanan }}</p> --}}
+                        <p class="text-sm tracking-tight text-gray-900 dark:text-white">Rp. {{ $layanan->harga_layanan }}</p>
+                        @php
+                            $totalHarga += $layanan->harga_layanan
+                        @endphp
+                    </div>
+                @endforeach
                 <div class="flex items-center justify-between mb-3">
-                    <img class="w-20 rounded-lg bg-gray-300" src="{{ asset('storage/images/' . $booking->layanan->foto_layanan) }}" alt="product image" />
+                    {{-- <img class="w-20 rounded-lg bg-gray-300" src="{{ asset('storage/images/' . $booking->layanan->foto_layanan) }}" alt="product image" /> --}}
+                    {{-- <img class="w-20 rounded-lg bg-gray-300" src="{{ asset('storage/images/' . $booking->layanan->foto_layanan) }}" alt="product image" />
                     <p class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">{{ $booking->layanan->nama_layanan }}</p>
-                    <p class="text-sm tracking-tight text-gray-900 dark:text-white">{{ $booking->jumlah }}x Rp{{ $booking->layanan->harga_layanan }}</p>
+                    <p class="text-sm tracking-tight text-gray-900 dark:text-white">{{ $booking->jumlah }}x Rp{{ $booking->layanan->harga_layanan }}</p> --}}
                 </div>
-                @php
-                    $total = $booking->jumlah * $booking->layanan->harga_layanan;
-                @endphp
+                {{-- @php
+                    // $total = $booking->jumlah * $booking->layanans->harga_layanan;
+                    $total = $booking->layanan->harga_layanan;
+                @endphp --}}
             @endif
 
             {{-- <div class="flex items-center justify-between mb-3">
@@ -82,7 +97,7 @@
                     <p class="text-md">Total Belanja</p>
                 </div>
                 <div>
-                    <p class="text-md font-bold">Rp{{ $total }}</p>
+                    <p class="text-md font-bold">Rp. {{ $totalHarga }}</p>
                 </div>
             </div>
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
@@ -113,8 +128,8 @@
             </div>
         </div>
         <div class="flex">
-            <a href="/ulasan" class="font-medium ml-auto">
-                <button type="button" class="text-gray-900 bg-gray-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 font-medium rounded-lg text-sm px-7 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Beri Ulasan</button>
+            <a href="/" class="font-medium ml-auto">
+                <button type="button" class="text-gray-900 bg-gray-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 font-medium rounded-lg text-sm px-7 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Home</button>
             </a>
         </div>
     </div>

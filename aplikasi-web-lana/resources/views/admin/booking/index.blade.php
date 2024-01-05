@@ -44,6 +44,7 @@
                                         <th>Nomor Telepon</th>
                                         <th>Waktu</th>
                                         <th>Status</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,6 +69,7 @@
                                                         href="{{ route('booking.updateStatus', ['id' => $item->id, 'newStatus' => 'ditolak']) }}">Reject</a>
                                                 @endif
                                             </td>
+                                            <td> <a class="btn btn-info" href="{{route('invoice.show' , ['id'=> $item->id])}}">Detail</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

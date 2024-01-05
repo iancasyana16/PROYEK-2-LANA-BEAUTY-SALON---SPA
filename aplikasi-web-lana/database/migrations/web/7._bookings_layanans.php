@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('bookings_layanans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_bookings');
             $table->unsignedBigInteger('id_layanan');
-            $table->date('tanggal_booking');
-            $table->time('waktu_booking');
-            $table->enum('status_booking', ['diterima', 'ditolak'])->default('diterima');
-            $table->text('informasi_tambahan')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_layanan')->references('id')->on('layanans');
+            $table->foreign('id_bookings')->references('id')->on('bookings')->onDelete('cascade');;
+            $table->foreign('id_layanan')->references('id')->on('layanans')->onDelete('cascade');;
         });
     }
 

@@ -6,7 +6,8 @@
                 <h2>Update Profil Anda</h2>
             </div>
             <div class="contentForm w-full mt-8">
-                <form action="" method="">
+                @auth
+                <form action="{{ route('settinguser.update', ['id' => auth()->user()->id]) }}" method="POST">
                     <div class="listForm flex items-center w-full gap-3">
                         <div class="itemLabels flex-shrink-0">
                             <div class="listLabels space-y-5 flex flex-col justify-center">
@@ -25,11 +26,11 @@
                                         <label for="">Nomor Telepon</label>
                                     </div>
                                 </div>
-                                <div class="itemLabels">
+                                {{-- <div class="itemLabels">
                                     <div class="theLabels">
                                         <label for="">Username</label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="itemLabels">
                                     <div class="theLabels">
                                         <label for="">Password</label>
@@ -52,7 +53,7 @@
                                         @else
                                             Belum diisi
                                         @endif --}}
-                                            <input type="text" name="nama" id=""
+                                            <input type="text" name="nama" id="" value="{{ old('nama', $user->nama) }}"
                                                 class="border border-black text-black outline-none w-full rounded">
                                         </div>
                                         {{-- @if (session('user'))
@@ -71,6 +72,7 @@
                                             Belum diisi
                                         @endif --}}
                                             <input type="text" name="email" id=""
+                                                value="{{ auth()->user()->email }}" readonly
                                                 class="border border-black text-black rounded outline-none w-full">
                                         </div>
                                     </div>
@@ -84,23 +86,24 @@
                                             Belum diisi
                                         @endif --}}
                                             <input type="text" name="nomor_telepon" id=""
+                                                value="{{ auth()->user()->telepon }}"
                                                 class="border border-black text-black rounded outline-none w-full">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="itemInput">
+                                {{-- <div class="itemInput">
                                     <div class="thInput">
                                         <div class="border border-black outline-none w-full rounded">
-                                            {{-- @if (session('user'))
+                                            @if (session('user'))
                                             {{ session('user')->Username }}
                                         @else
                                             Belum diisi
-                                        @endif --}}
+                                        @endif
                                             <input type="text" name="" id=""
                                                 class="border border-black text-black outline-none w-full rounded">
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="itemInput">
                                     <div class="thInput">
                                         <div class="border border-black outline-none w-full rounded">
@@ -109,7 +112,8 @@
                                         @else
                                             Belum diisi
                                         @endif --}}
-                                            <input type="text" name="" id=""
+                                            <input type="text" name="password" id=""
+                                                value="*********" readonly
                                                 class="border border-black text-black rounded outline-none w-full">
                                         </div>
                                     </div>
@@ -122,7 +126,8 @@
                                         @else
                                             Belum diisi
                                         @endif --}}
-                                            <input type="text" name="" id=""
+                                            <input type="text" name="alamat" id=""
+                                            value="{{auth()->user()->alamat}}"
                                                 class="border border-black text-black rounded outline-none w-full">
                                         </div>
                                     </div>
@@ -130,11 +135,12 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="flex justify-end mt-4">
+                    <div class="flex justify-end mt-4">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Simpan</button>
                         <button type="submit" class="bg-red-700 text-white px-4 py-2 rounded-md">Batal</button>
-                    </div> --}}
+                    </div>
                 </form>
+                @endauth
             </div>
         </div>
     </section>

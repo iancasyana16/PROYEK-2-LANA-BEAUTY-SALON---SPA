@@ -96,6 +96,13 @@ class SalonController extends Controller
             'weekday_tutup' => $request->weekday_tutup,
             'weekend_buka' => $request->weekend_buka,
             'weekend_tutup' => $request->weekend_tutup,
+            'deskripsi' => $request->deskripsi,
+            'visi_salon' => $request->visi_salon,
+            'misi_salon' => $request->misi_salon,
+            'facebook' => $request->facebook,
+            'instagram' => $request->instagram,
+            'twitter' => $request->twitter,
+
         ]);
         // echo "update berhasil <br>";
 

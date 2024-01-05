@@ -40,7 +40,7 @@ class loginAdminController extends Controller
     // Simpan data admin
     $admin->save();
 
-        return redirect()->route('login')->with('success', 'Register Successfully');
+        return redirect()->route('loginAdmin')->with('success', 'Register Successfully');
     }
 
     /**

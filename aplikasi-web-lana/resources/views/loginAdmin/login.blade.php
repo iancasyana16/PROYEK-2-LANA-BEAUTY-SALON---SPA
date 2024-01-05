@@ -46,12 +46,12 @@
                     <div class="txt-center nt-3 d-flex justify-content-center">
                         <button class="btn btn-primary mt-3">LOGIN</button>
                     </div>
-                    <div class="txt-center nt-3 d-flex justify-content-center mt-3">
+                    {{-- <div class="txt-center nt-3 d-flex justify-content-center mt-3">
                         <a>Belum Punya Akun?</a>
                     </div>
                     <div class="txt-center nt-3 d-flex justify-content-center">
                         <a href="/registerAdmin" class="nav-link text-primary">Daftar Disini</a>
-                    </div>
+                    </div> --}}
                 </div>
                 </form>
             </div>

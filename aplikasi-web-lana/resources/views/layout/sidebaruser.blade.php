@@ -46,8 +46,9 @@
                         </p>
                     </a>
                 </li>
+                @auth
                 <li class="nav-item">
-                    <a href="{{ url('/userprofil/setting') }}"
+                    <a href="{{ route('settinguser.edit', ['id' => auth()->user()->id]) }}"
                         class="nav-link {{ Request::is('userprofil/setting*') ? 'active' : '' }}">
                         <i class="fa-solid fa-gears p-1 fs-5" style="color: #ffffff;"></i>
                         <p class="fs-5">
@@ -55,8 +56,9 @@
                         </p>
                     </a>
                 </li>
+                @endauth
                 <li class="nav-item">
-                    <a href="{{ url('/userprofil/logout') }}"
+                    <a href="{{ route('loginPost') }}"
                         class="nav-link {{ Request::is('userprofil/logout*') ? 'active' : '' }}">
                         <i class="fa-solid fa-power-off p-1 fs-5" style="color: #ffffff;"></i>
                         <p class="fs-5">

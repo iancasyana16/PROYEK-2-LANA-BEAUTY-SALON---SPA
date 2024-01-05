@@ -24,9 +24,15 @@ Route::get('/register', function () {
     return view('/user.register');
 });
 
-Route::get('userprofil', [UserProfilController::class, 'home']);
-Route::get('userprofil/setting', [UserProfilController::class, 'setting']);
-Route::get('userprofil/logout', [UserProfilController::class, 'logout']);
+Route::get('/userprofil', [UserProfilController::class, 'home'])->name('user.home');
+// Route::get('/userprofil/setting', [UserProfilController::class, 'setting']);
+// Route::get('userprofil/logout', [UserProfilController::class, 'logout']);
+// Route::get('/editprofil/{id}', [UserProfilController::class, 'settinguser'])->name('user.home');
+// Route::get('/settinguser/profil/edit', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
+// Route::put('/settinguser/profil/update', [LoginRegisterController::class, 'update'])->name('settinguser.update');
+Route::get('/settinguser/profil/edit/{id}', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
+Route::put('/settinguser/profil/update/{id}', [LoginRegisterController::class, 'update'])->name('settinguser.update');
+
 
 Route::get('/login', [loginRegisterController::class, 'loginindex'])->name('loginindex');
 Route::post('/login', [loginRegisterController::class, 'loginPost'])->name('loginPost');
@@ -84,11 +90,6 @@ Route::put('/admin/setting/update', [SalonController::class, 'update'])->name('a
 Route::get('/admin/setting/profil/edit/{id}', [loginAdminController::class, 'edit'])->name('admin.settingprofil.edit');
 Route::put('/admin/setting/profil/update', [loginAdminController::class, 'update'])->name('admin.settingprofil.update');
 
-Route::get('/editprofil', [LoginRegisterController::class, 'settinguser'])->name('user.index');
-// Route::get('/settinguser/profil/edit', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
-// Route::put('/settinguser/profil/update', [LoginRegisterController::class, 'update'])->name('settinguser.update');
-Route::get('/settinguser/profil/edit/{id}', [LoginRegisterController::class, 'edit'])->name('settinguser.edit');
-Route::put('/settinguser/profil/update/{id}', [LoginRegisterController::class, 'update'])->name('settinguser.update');
 
 Route::get('/registerAdmin', [loginAdminController::class, 'registerAdminIndex'])->name('registerAdminIndex');
 Route::post('/registerAdmin', [loginAdminController::class, 'registerAdminPost'])->name('registerAdminPost');
@@ -103,6 +104,7 @@ Route::get('/reservations/{id}/edit', [BookingController::class, 'edit'])->name(
 Route::put('/reservations/{id}', [BookingController::class, 'update'])->name('booking.update');
 Route::delete('/reservations/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
 // routes/web.php
+// Route::get('/invoice', [BookingController::class, 'showInvoice'])->name('invoice.show');
 Route::get('/invoice/{id}', [BookingController::class, 'showInvoice'])->name('invoice.show');
 // Route::get('/invoice/{id}', [BookingController::class, 'showInvoice'])->name('invoice.show');
 

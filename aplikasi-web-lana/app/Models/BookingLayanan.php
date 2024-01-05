@@ -5,25 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class BookingLayanan extends Model
 {
     use HasFactory;
-    protected $table = 'bookings';
+    protected $table = 'bookings_layanans';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'id_user',
-        // 'id_layanan',
-        'tanggal_booking',
-        'waktu_booking',
-        'status_booking',
-        'informasi_tambahan',
+        'id_bookings',
+        'id_layanan',
     ];
 
     // Relasi dengan tabel Users
-    public function user()
+    public function booking()
     {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(Booking::class, 'id_bookings');
     }
 
     // Relasi dengan tabel Layanan

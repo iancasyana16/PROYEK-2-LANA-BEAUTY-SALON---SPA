@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserProfilController extends Controller
 {
@@ -13,10 +16,21 @@ class UserProfilController extends Controller
     //     return view('admin.user.index', compact('UserProfil'));
     // }
 
+    // public function home()
+    // {
+    //     $user = User::all();
+    //     return view('user.home', compact('user'));
+    // }
     public function home()
     {
-        $user = User::all();
-        return view('user.home', compact('user'));
+        // Dapatkan pengguna yang terautentikasi
+        $user = Auth::user();
+        $bookings = Booking::with(['user', 'layanan'])->get();
+        // $bookings = Booking::leftJoin('users', 'bookings.id_user', '=', 'users.id')
+        // ->leftJoin('layanans', 'bookings.id_layanan', '=', 'layanans.id')
+        // ->get();
+
+        return view('user.home', compact('user', 'bookings'));
     }
     public function setting()
     {

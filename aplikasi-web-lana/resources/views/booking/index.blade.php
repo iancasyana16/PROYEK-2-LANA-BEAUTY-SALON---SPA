@@ -78,7 +78,7 @@
                                                                 </td>
                                                                 <td>{{ $item->nama_layanan }}</td>
                                                                 <td>{{ $item->harga_layanan }}</td>
-                                                                <td><input type="checkbox" name="jenis_layanan" id="" value="{{ $item->id }}">
+                                                                <td><input type="checkbox" name="jenis_layanan[]" id="" value="{{ $item->id }}">
                                                                 </td>
                                                             </tr>
                                                         @endforeach
